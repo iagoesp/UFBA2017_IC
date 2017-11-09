@@ -25,13 +25,8 @@ const char *vertexShaderSource = "#version 330 core\n"
     "{\n"
     "     gl_Position =  MVP * vec4(aPos,1);\n"
     "}\0";
-    //vec4 i, j;
-    //for(i=aPos.0;i<aPos.length();i++){
-        //for(j=aPos.0;j<i.length();j++){
-//            aPos.z=
-   //     }
-//declaração do Fragment Shader
 
+//declaração do Fragment Shader
 const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
@@ -106,13 +101,18 @@ int main(){
     //const GLuint indexesSize = pow(MESH_SIZE,2)*2-1;
     //const GLuint indexesSize = pow(MESH_SIZE,2)*2;
    // glm::vec3 index[indexesSize];
-    /*struct vertex{
-        float x;
-        float y;
-        };*/
 
-    //vector<vertex> indicesV;
-    //indicesV.clear();
+    glm::mat4 Projection = glm::perspective(glm::radians(0.0f), (float) SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
+    glm::mat4 View = glm::lookAt(
+        glm::vec3(0,8,0), // Camera is at (4,3,3), in World Space
+        glm::vec3(0,0,0), // and looks at the origin
+        glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
+    );
+
+    glm::mat4 Model = glm::mat4(1.0f);
+    glm::mat4 mvp = Projection * View * Model;
+
     vector <GLfloat> vert;
     vert.clear();
     float index=4;
@@ -138,21 +138,6 @@ int main(){
             indices.push_back(vert[i+j+5]);
         }
 
-//    glm::perspective();
-  //  glm::lookAt();
-
-    glm::mat4 Projection = glm::perspective(glm::radians(0.0f), (float) SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-
-    glm::mat4 View = glm::lookAt(
-        glm::vec3(9,0,0), // Camera is at (4,3,3), in World Space
-        glm::vec3(9,0,0), // and looks at the origin
-        glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
-    );
-
-    glm::mat4 Model = glm::mat4(1.0f);
-    glm::mat4 mvp = Projection * View * Model;
-
-
 //    float vertices[] = {
 //         0.3f,  0.3f, -1.0f,  // 0
 //         0.3f, -0.3f, 0.0f,  // 1
@@ -171,7 +156,7 @@ int main(){
     glGenBuffers(1, &EBO);
 
     //declaração do Vertex Buffer e Vertex Array Objects
-    unsigned int VBO, VAO;
+    unsigned int VBOv, VBOi, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBOi);
     glGenBuffers(1, &VBOv);
@@ -180,8 +165,8 @@ int main(){
     glBufferData(GL_ARRAY_BUFFER, vert.size()*sizeof(GLfloat), &vert[0], GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
    // glBufferData(GL_ARRAY_BUFFER, sizeof(mesh), &vert[0][0], GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOi);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size()*sizeof(GLfloat), &indices[0], GL_STATIC_DRAW);
     //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index), &index[0], GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -193,26 +178,24 @@ int main(){
         processInput(window);
 
         // renderização dos objetos - bg
-        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+        glClearColor(0.5f, 0.5f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         //utilização do Shader
         glUseProgram(shaderProgram);
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
-        glBindVertexArray(VBO);                                                                                                          // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+        glBindVertexArray(VBOi);                                                                                                          // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         glDrawElements(GL_POINTS, indices.size()*sizeof(GLfloat), GL_FLOAT, 0);
-//        glDrawArrays();
+
         glBindVertexArray(0); // no need to unbind it every time
 
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // optional: de-allocate all resources once they've outlived their purpose:
+    glDeleteBuffers(1, &VBOv);
+    glDeleteBuffers(1, &VBOi);
     glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     glfwTerminate();
