@@ -9,3 +9,13 @@
 	<iostream>
 	<vector>
 
+1510514304 source:c:\users\ricardo\desktop\shaders\ufba2017_ic\versaomatrizes\main.cpp
+	<glad/glad.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<GL/freeglut.h>
+	<iostream>
+	<vector>
+

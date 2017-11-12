@@ -105,17 +105,18 @@ int main(){
     glm::mat4 Projection = glm::perspective(glm::radians(0.0f), (float) SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
     glm::mat4 View = glm::lookAt(
-        glm::vec3(0,8,0), // Camera is at (4,3,3), in World Space
-        glm::vec3(0,0,0), // and looks at the origin
-        glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
+        glm::vec3(0.0,8.0,0.0), // Camera is at (4,3,3), in World Space
+        glm::vec3(0.0,0.0,0.0), // and looks at the origin
+        glm::vec3(0.0,1.0,0.0)  // Head is up (set to 0,-1,0 to look upside-down)
     );
 
     glm::mat4 Model = glm::mat4(1.0f);
     glm::mat4 mvp = Projection * View * Model;
 
     vector <GLfloat> vert;
-    vert.clear();
-    float index=4;
+    vector<GLfloat> indices;
+    vert.clear(); indices.clear();
+    float index=4.0;
     float tamAmostra = float(MESH_SIZE)/index;
     //declaração dos vértices
     for(int i=0; i<index; i++)
@@ -126,16 +127,15 @@ int main(){
             vert.push_back(auxy);
         }
 
-    vector<GLfloat> indices;
-    indices.clear();
-    for(int i=0; i<index; i++)
-        for(int j=0; j<index; j++){
-            indices.push_back(vert[i+j+0]);
-            indices.push_back(vert[i+j+1]);
-            indices.push_back(vert[i+j+2]);
-            indices.push_back(vert[i+j+3]);
-            indices.push_back(vert[i+j+4]);
-            indices.push_back(vert[i+j+5]);
+    for(int i=0; i<MESH_SIZE; i++)
+        for(int j=0; j<MESH_SIZE; j++){
+            indices.push_back( i*(MESH_SIZE+1)+j);
+            indices.push_back( i*(MESH_SIZE+1)+j+1);
+            indices.push_back( (i+1)*(MESH_SIZE+1)+j);
+
+            indices.push_back( i*(MESH_SIZE+1)+j);
+            indices.push_back( i*(MESH_SIZE+1)+j+1);
+            indices.push_back( (i+1)*(MESH_SIZE+1)+j)
         }
 
 //    float vertices[] = {
