@@ -37,9 +37,7 @@
 			<Add library="glfw3" />
 			<Add library="opengl32" />
 			<Add library="gdi32" />
-			<Add library="assimp.dll" />
 			<Add library="glad" />
-			<Add library="SOIL" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>

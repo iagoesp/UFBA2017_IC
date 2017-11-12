@@ -133,27 +133,14 @@ int main(){
             indices.push_back( i*(MESH_SIZE+1)+j+1);
             indices.push_back( (i+1)*(MESH_SIZE+1)+j);
 
-            indices.push_back( i*(MESH_SIZE+1)+j);
             indices.push_back( i*(MESH_SIZE+1)+j+1);
+            indices.push_back( (i+1)*(MESH_SIZE+1)+j+1);
             indices.push_back( (i+1)*(MESH_SIZE+1)+j)
         }
 
-//    float vertices[] = {
-//         0.3f,  0.3f, -1.0f,  // 0
-//         0.3f, -0.3f, 0.0f,  // 1
-//        -0.3f, -0.3f, 1.0f,  // 2
-//        -0.3f,  0.3f, 0.0f   // 3
-//    };
-
-//    definição de cada triângulo
-//    unsigned int indices[] = {
-//        0, 1, 3,
-//        1, 2, 3
-//    };
-
-    //declaração do Elements Buffer Object
-    unsigned int EBO;
-    glGenBuffers(1, &EBO);
+//    declaração do Elements Buffer Object
+//    unsigned int EBO;
+//    glGenBuffers(1, &EBO);
 
     //declaração do Vertex Buffer e Vertex Array Objects
     unsigned int VBOv, VBOi, VAO;
@@ -171,6 +158,19 @@ int main(){
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+
+//    float vertices[] = {
+//         0.3f,  0.3f, -1.0f,  // 0
+//         0.3f, -0.3f, 0.0f,  // 1
+//        -0.3f, -0.3f, 1.0f,  // 2
+//        -0.3f,  0.3f, 0.0f   // 3
+//    };
+
+//    definição de cada triângulo
+//    unsigned int indices[] = {
+//        0, 1, 3,
+//        1, 2, 3
+//    };
 
     // renderização
     while (!glfwWindowShouldClose(window))    {
