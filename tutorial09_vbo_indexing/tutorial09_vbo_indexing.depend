@@ -1,0 +1,82 @@
+# depslib dependency file v1.0
+1510606685 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\tutorial09.cpp
+	<stdio.h>
+	<stdlib.h>
+	<vector>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shader.hpp"
+	"texture.hpp"
+	"controls.hpp"
+	"objloader.hpp"
+	"vboindexer.hpp"
+
+1510171039 c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\shader.hpp
+
+1510171039 c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\texture.hpp
+
+1510606673 c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\controls.hpp
+
+1510171039 c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\objloader.hpp
+
+1510171039 c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\vboindexer.hpp
+
+1510606409 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\tutorial09_assimp.cpp
+	<stdio.h>
+	<stdlib.h>
+	<vector>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shader.hpp"
+	"texture.hpp"
+	"controls.hpp"
+	"objloader.hpp"
+	"vboindexer.hpp"
+
+1510171827 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510171039 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\objloader.cpp
+	<vector>
+	<stdio.h>
+	<string>
+	<cstring>
+	<glm/glm.hpp>
+	"objloader.hpp"
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1510171039 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\shader.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"shader.hpp"
+
+1510171677 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\texture.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1510171039 source:c:\users\iago.labcg-pc\desktop\ic\ogl\tutorial09_vbo_indexing\vboindexer.cpp
+	<vector>
+	<map>
+	<glm/glm.hpp>
+	"vboindexer.hpp"
+	<string.h>
+
