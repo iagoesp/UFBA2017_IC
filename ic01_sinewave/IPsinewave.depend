@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1510769475 source:c:\users\iago.labcg-pc\documents\ipsinewave\main.cpp
+	<vector>
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shader.hpp"
+	"controls.hpp"
+
+1510171039 c:\users\iago.labcg-pc\documents\ipsinewave\shader.hpp
+
+1510606673 c:\users\iago.labcg-pc\documents\ipsinewave\controls.hpp
+
+1510171827 source:c:\users\iago.labcg-pc\documents\ipsinewave\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510171039 source:c:\users\iago.labcg-pc\documents\ipsinewave\shader.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"shader.hpp"
+

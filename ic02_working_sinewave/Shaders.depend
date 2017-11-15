@@ -1,0 +1,192 @@
+# depslib dependency file v1.0
+1508943093 source:c:\users\iago.labcg-pc\downloads\shaders\shaders\drawterrain.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat4x4.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<vector>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"initShaders.h"
+
+1508920953 c:\users\iago.labcg-pc\downloads\shaders\shaders\initshaders.h
+	<GL/glew.h>
+
+1508920940 source:c:\users\iago.labcg-pc\downloads\shaders\shaders\initshaders.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<GL/glew.h>
+	"initShaders.h"
+
+1510510561 source:c:\users\iago.labcg-pc\downloads\shaders\shaders\load3dmodel.cpp
+	<iostream>
+	<cfloat>
+	<vector>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat4x4.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	"assimp/cimport.h"
+	"assimp/scene.h"
+	"assimp/postprocess.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	"initShaders.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\cimport.h
+	"types.h"
+	"importerdesc.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\types.h
+	<sys/types.h>
+	<math.h>
+	<stddef.h>
+	<string.h>
+	<limits.h>
+	"defs.h"
+	"vector3.h"
+	"vector2.h"
+	"color4.h"
+	"matrix3x3.h"
+	"matrix4x4.h"
+	"quaternion.h"
+	<cstring>
+	<new>
+	<string>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"vector2.inl"
+	"vector3.inl"
+	"color4.inl"
+	"quaternion.inl"
+	"matrix3x3.inl"
+	"matrix4x4.inl"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\defs.h
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\vector3.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\compiler\pushpack1.h
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\compiler\poppack1.h
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\vector2.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\color4.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\matrix3x3.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\matrix4x4.h
+	"vector3.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\quaternion.h
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\vector2.inl
+	"vector2.h"
+	<cmath>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\vector3.inl
+	"vector3.h"
+	<cmath>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\color4.inl
+	"color4.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\quaternion.inl
+	"quaternion.h"
+	<cmath>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\matrix3x3.inl
+	"matrix3x3.h"
+	"matrix4x4.h"
+	<algorithm>
+	<cmath>
+	<limits>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\matrix4x4.inl
+	"matrix4x4.h"
+	"matrix3x3.h"
+	"quaternion.h"
+	<algorithm>
+	<limits>
+	<cmath>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\importerdesc.h
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\scene.h
+	"types.h"
+	"texture.h"
+	"mesh.h"
+	"light.h"
+	"camera.h"
+	"material.h"
+	"anim.h"
+	"metadata.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\texture.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\mesh.h
+	"types.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\light.h
+	"types.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\camera.h
+	"types.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\material.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"material.inl"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\material.inl
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\anim.h
+	"types.h"
+	"quaternion.h"
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\metadata.h
+	<assert.h>
+	"Compiler/pstdint.h"
+	<limits.h>
+	<stdint.h>
+	<string>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\compiler\pstdint.h
+	<stddef.h>
+	<limits.h>
+	<signal.h>
+	<stdint.h>
+	<sys/inttypes.h>
+	<wchar.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1467984590 c:\users\iago.labcg-pc\downloads\shaders\shaders\assimp\postprocess.h
+	"types.h"
+
