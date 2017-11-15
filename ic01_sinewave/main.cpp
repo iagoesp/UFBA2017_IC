@@ -17,7 +17,10 @@ using namespace std;
 #include "shader.hpp"
 #include "controls.hpp"
 
-
+const GLuint resolution = 10;
+const GLfloat meshSize = 20.f;
+const string standardShader = "standardShader";
+const string terrainShader = "terrainShader";
 int main( void )
 {
 	// Initialise GLFW
@@ -68,7 +71,7 @@ int main( void )
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
+	GLuint programID = LoadShaders( standardShader+".vertexshader", standardShader+".fragmentshader" );
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
@@ -81,26 +84,25 @@ int main( void )
 
     int numPtos = 0;
     int numTri = 0;
-    int res = 10;
-    float delta = 20.0 / (float)res;
+    float delta = meshSize / (float)resolution;
 
-	for (GLfloat j = -10.0 ; j <= 10.0 ; j+=delta)
-		for (GLfloat i = -10.0 ; i <= 10.0 ; i+=delta) {
+	for (GLfloat j = -10.f ; j <= 10.f ; j+=delta)
+		for (GLfloat i = -10.f ; i <= 10.f ; i+=delta) {
 			vertices.push_back(i);
 			vertices.push_back(j);
 
 			numPtos++;
 			}
 
-	for (GLuint i = 0 ; i < res ; i++)
-		for (GLuint j = 0 ; j < res ; j++) {
-			indices.push_back( i*(res+1) 		+ j);		// V0
-			indices.push_back( i*(res+1) 		+ (j+1));	// V1
-			indices.push_back( (i+1)*(res+1) 	+ j);		// V2
+	for (GLuint i = 0 ; i < resolution ; i++)
+		for (GLuint j = 0 ; j < resolution ; j++) {
+			indices.push_back( i*(resolution+1) 		+ j);		// V0
+			indices.push_back( i*(resolution+1) 		+ (j+1));	// V1
+			indices.push_back( (i+1)*(resolution+1) 	+ j);		// V2
 
-			indices.push_back( i*(res+1) 		+ (j+1));	// V1
-			indices.push_back( (i+1)*(res+1) 	+ (j+1));	// V3
-			indices.push_back( (i+1)*(res+1) 	+ j);		// V2
+			indices.push_back( i*(resolution+1) 		+ (j+1));	// V1
+			indices.push_back( (i+1)*(resolution+1) 	+ (j+1));	// V3
+			indices.push_back( (i+1)*(resolution+1) 	+ j);		// V2
 			numTri+=2;
 		}
 	// Load it into a VBO
