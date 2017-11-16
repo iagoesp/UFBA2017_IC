@@ -81,7 +81,6 @@ int main(int argv, char** argc)
 	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
 	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
 	GLuint varianceValue, freqValue, ampValue;
-  varianceValue = glGetUniformLocation(programID, "wave");
   freqValue = glGetUniformLocation(programID, "freq");
   ampValue = glGetUniformLocation(programID, "amp");
 
@@ -158,7 +157,6 @@ int main(int argv, char** argc)
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
 		glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-    glUniform1f(varianceValue,currentTime);
     glUniform1f(freqValue,freq);
     glUniform1f(ampValue,amp);
 
