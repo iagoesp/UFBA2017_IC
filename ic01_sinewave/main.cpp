@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <string>
 
 // Include GLEW
 #include <GL/glew.h>
@@ -17,12 +18,14 @@ using namespace std;
 #include "shader.hpp"
 #include "controls.hpp"
 
-const GLuint resolution = 10;
+const GLuint index = 10;
 const GLfloat meshSize = 20.f;
-const string standardShader = "standardShader";
-const string terrainShader = "terrainShader";
-int main( void )
+
+int main(int argv, char** argc)
 {
+  bool t = 0;
+  float freq = 3.f,
+      amp = 0.2f;
 	// Initialise GLFW
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -30,7 +33,7 @@ int main( void )
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow( 1024, 768, "Tutorial 09 - VBO Indexing", NULL, NULL);
+	window = glfwCreateWindow( 1280, 1024, "IPSinewave_v6", NULL, NULL);
 	if( window == NULL ){
         cout << "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n";
 		glfwTerminate();
@@ -53,7 +56,7 @@ int main( void )
 
     // Set the mouse at the center of the screen
     glfwPollEvents();
-    glfwSetCursorPos(window, 1024/2, 768/2);
+    glfwSetCursorPos(window, 1280/2, 1024/2);
 
 	// Dark blue background
 	glClearColor(0.1f, 0.3f, 0.8f, 1.0f);
@@ -71,42 +74,41 @@ int main( void )
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( standardShader+".vertexshader", standardShader+".fragmentshader" );
+	GLuint programID = LoadShaders( "sinewaveshader.vert", "sinewaveshader.frag");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
 	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
+	GLuint varianceValue, freqValue, ampValue;
+  varianceValue = glGetUniformLocation(programID, "wave");
+  freqValue = glGetUniformLocation(programID, "freq");
+  ampValue = glGetUniformLocation(programID, "amp");
+
 
 	vector<GLfloat> vertices;
+  vector<unsigned short> indices;
 
-    vector<unsigned short> indices;
+  float tamAmostra = meshSize / (float)index;
 
-    int numPtos = 0;
-    int numTri = 0;
-    float delta = meshSize / (float)resolution;
-
-	for (GLfloat j = -10.f ; j <= 10.f ; j+=delta)
-		for (GLfloat i = -10.f ; i <= 10.f ; i+=delta) {
+	for (GLfloat j = -10.f ; j <= 10.f ; j+=tamAmostra)
+		for (GLfloat i = -10.f ; i <= 10.f ; i+=tamAmostra) {
 			vertices.push_back(i);
 			vertices.push_back(j);
+    }
 
-			numPtos++;
-			}
+	for (GLuint i = 0 ; i < index ; i++)
+		for (GLuint j = 0 ; j < index ; j++) {
+			indices.push_back( i*(index+1) 		+ j);		// V0
+			indices.push_back( i*(index+1) 		+ (j+1));	// V1
+			indices.push_back( (i+1)*(index+1) 	+ j);		// V2
 
-	for (GLuint i = 0 ; i < resolution ; i++)
-		for (GLuint j = 0 ; j < resolution ; j++) {
-			indices.push_back( i*(resolution+1) 		+ j);		// V0
-			indices.push_back( i*(resolution+1) 		+ (j+1));	// V1
-			indices.push_back( (i+1)*(resolution+1) 	+ j);		// V2
-
-			indices.push_back( i*(resolution+1) 		+ (j+1));	// V1
-			indices.push_back( (i+1)*(resolution+1) 	+ (j+1));	// V3
-			indices.push_back( (i+1)*(resolution+1) 	+ j);		// V2
-			numTri+=2;
+			indices.push_back( i*(index+1) 		+ (j+1));	// V1
+			indices.push_back( (i+1)*(index+1) 	+ (j+1));	// V3
+			indices.push_back( (i+1)*(index+1) 	+ j);		// V2
 		}
-	// Load it into a VBO
 
+	// Load it into a VBO
 	GLuint vertexbuffer;
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -156,6 +158,10 @@ int main( void )
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
 		glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+    glUniform1f(varianceValue,currentTime);
+    glUniform1f(freqValue,freq);
+    glUniform1f(ampValue,amp);
+
 
 		// 1rst attribute buffer : vertices
 		glEnableVertexAttribArray(0);

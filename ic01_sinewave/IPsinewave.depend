@@ -31,7 +31,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1510171827 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\controls.cpp
+1510789339 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\controls.cpp
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -39,9 +39,10 @@
 
 1510606673 c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\controls.hpp
 
-1510769850 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\main.cpp
+1510790669 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\main.cpp
 	<vector>
 	<iostream>
+	<string>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>

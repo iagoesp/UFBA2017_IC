@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 			</Target>
-			<Target title="glad">
+			<Target title="Release">
 				<Option output="bin/Release/IPsinewave" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
@@ -43,6 +43,10 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="shader.cpp" />
 		<Unit filename="shader.hpp" />
+		<Unit filename="standardShader.frag" />
+		<Unit filename="standardShader.vert" />
+		<Unit filename="terrainShader.frag" />
+		<Unit filename="terrainShader.vert" />
 		<Extensions>
 			<code_completion />
 			<envvars />
