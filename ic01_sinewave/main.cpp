@@ -23,7 +23,6 @@ const GLfloat meshSize = 20.f;
 
 int main(int argv, char** argc)
 {
-  bool t = 0;
   float freq = 3.f,
       amp = 0.2f;
 	// Initialise GLFW
@@ -80,7 +79,7 @@ int main(int argv, char** argc)
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
 	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
-	GLuint varianceValue, freqValue, ampValue;
+	GLuint freqValue, ampValue;
   freqValue = glGetUniformLocation(programID, "freq");
   ampValue = glGetUniformLocation(programID, "amp");
 
@@ -121,7 +120,6 @@ int main(int argv, char** argc)
 
 	// Get a handle for our "LightPosition" uniform
 	glUseProgram(programID);
-	GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 
 	// For speed computation
 	double lastTime = glfwGetTime();
