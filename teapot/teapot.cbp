@@ -31,6 +31,31 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="freeglut" />
+			<Add library="glew32" />
+			<Add library="glfw3" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+		</Linker>
+		<Unit filename="App.cpp" />
+		<Unit filename="App.h" />
+		<Unit filename="Rectangle.h" />
+		<Unit filename="RenderSystem.cpp" />
+		<Unit filename="RenderSystem.h" />
+		<Unit filename="Shader.cpp" />
+		<Unit filename="Shader.h" />
+		<Unit filename="Teapot.h" />
+		<Unit filename="Utility.h" />
+		<Unit filename="ch09-02-Tess-Teapot.cpp" />
+		<Unit filename="mat.h" />
+		<Unit filename="rectangle.cpp" />
+		<Unit filename="teapot.frag" />
+		<Unit filename="teapot.tcs" />
+		<Unit filename="teapot.tes" />
+		<Unit filename="teapot.vert" />
+		<Unit filename="triangle.h" />
+		<Unit filename="vec.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
