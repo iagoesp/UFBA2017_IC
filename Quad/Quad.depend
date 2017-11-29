@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1511923926 source:c:\users\iagop\desktop\quad\quad\app.cpp
+	"App.h"
+
+1511923915 c:\users\iagop\desktop\quad\quad\app.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<string>
+	<windows.h>
+	<memory>
+
+1511923733 source:c:\users\iagop\desktop\quad\quad\ch09-01-tess-quad.cpp
+	"RenderSystem.h"
+	<memory>
+
+1511923939 c:\users\iagop\desktop\quad\quad\rendersystem.h
+	"App.h"
+	"Rectangle.h"
+
+1511923945 c:\users\iagop\desktop\quad\quad\rectangle.h
+	"Shader.h"
+	"Utility.h"
+
+1511923358 c:\users\iagop\desktop\quad\quad\shader.h
+	<GL/glew.h>
+	<iostream>
+	<vector>
+	<string>
+	<windows.h>
+	<memory>
+
+1511922986 c:\users\iagop\desktop\quad\quad\utility.h
+	<gl/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+
+1511922644 source:c:\users\iagop\desktop\quad\quad\rectangle.cpp
+	"Rectangle.h"
+	<glm/glm.hpp>
+	<glfw/glfw3.h>
+
+1511923808 source:c:\users\iagop\desktop\quad\quad\rendersystem.cpp
+	"RenderSystem.h"
+	<glm/glm.hpp>
+
+1511923336 source:c:\users\iagop\desktop\quad\quad\shader.cpp
+	"Shader.h"
+	<fstream>
+
