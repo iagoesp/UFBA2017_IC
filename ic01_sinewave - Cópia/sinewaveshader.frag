@@ -1,14 +1,11 @@
 #version 330 core
 
-in vec3 y;
-in vec3 tePatchDistance;
+in float y;
 
 out vec4 frag;
 
 void main(){
-    frag = vec4( tePatchDistance.x , tePatchDistance.y , tePatchDistance.z , 1.0); //escala 1
-    /*
-    float new_y = p1;
+    float new_y = y;
 
     if (new_y > 1.0)
         frag = vec4( 1.0 , 0.0 , 0.0 , 1.0); //escala 1
@@ -24,5 +21,5 @@ void main(){
 
     else if (new_y < -0.5)
         frag = vec4( 0.0, 0.0, 1.0, 1.0);   //escala 5
-*/
+
 }

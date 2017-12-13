@@ -52,7 +52,7 @@ int main(int argv, char** argc){
     glfwSetCursorPos(window, 1280/2, 1024/2);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, .0f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
@@ -61,14 +61,14 @@ int main(int argv, char** argc){
 
 	// Cull triangles which normal is not towards the camera
 	glEnable(GL_CULL_FACE);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "sinewaveshader.vert",  "sinewaveshader.cont", "sinewaveshader.eval", "sinewaveshader.frag");
+	GLuint programID = LoadShaders( "sinewaveshader.vert", "sinewaveshader.frag");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID         = glGetUniformLocation(programID, "MVP");
@@ -76,8 +76,7 @@ int main(int argv, char** argc){
 	GLuint ModelMatrixID    = glGetUniformLocation(programID, "M");
 	GLuint freqValue        = glGetUniformLocation(programID, "freq");
 	GLuint ampValue         = glGetUniformLocation(programID, "amp");
-	GLuint InnerLoc         = glGetUniformLocation( programID, "Inner" );// Inner tessellation paramter
-    GLuint OuterLoc         = glGetUniformLocation( programID, "Outer" );  // Outer tessellation paramter
+
 
     vector<GLfloat> vertices;
     vector<unsigned short> indices;
@@ -109,8 +108,6 @@ int main(int argv, char** argc){
 	    cout<<endl;
 	}
 
-
-
 	// Load it into a VBO
 	GLuint vertexbuffer;
 	glGenBuffers(1, &vertexbuffer);
@@ -125,14 +122,14 @@ int main(int argv, char** argc){
 
 	// Get a handle for our "LightPosition" uniform
 	glUseProgram(programID);
-    glPatchParameteri(GL_PATCH_VERTICES, 3 );              //Tessalation
-    cout<<vertices.size()/2<<endl;
+
 	// For speed computation
-	//double lastTime = glfwGetTime(); int nbFrames = 0;
+	double lastTime = glfwGetTime();
+	int nbFrames = 0;
 
 	do{
-		// Measure speed
-        // double currentTime = glfwGetTime();//		nbFrames++; //		if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1sec ago //			// printf and reset //			cout<<1000.0/double(nbFrames)<<"ms/frame\n";    //			nbFrames = 0;   //			lastTime += 1.0;    //}
+//		// Measure speed
+//		double currentTime = glfwGetTime();//		nbFrames++; //		if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1sec ago //			// printf and reset //			cout<<1000.0/double(nbFrames)<<"ms/frame\n";    //			nbFrames = 0;   //			lastTime += 1.0;    //}
 
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -150,12 +147,9 @@ int main(int argv, char** argc){
 		// Send our transformation to the currently bound shader,
 		// in the "MVP" uniform
         float freq = 3.0, amp = 2.0;
-        GLfloat  Inner = 1.0f,  Outer = 1.0f;
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 		glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
 		glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-        glUniform1f( InnerLoc, Inner );
-        glUniform1f( OuterLoc, Outer );
         glUniform1f(freqValue,freq);
         glUniform1f(ampValue,amp);
 
@@ -168,7 +162,7 @@ int main(int argv, char** argc){
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
 		// Draw the triangles !
-		glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
+		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
 		glDisableVertexAttribArray(0);
 

@@ -72,10 +72,11 @@
 
 1510846693 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\controls.hpp
 
-1512519902 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\main.cpp
+1513187045 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\main.cpp
 	<vector>
 	<iostream>
 	<string>
+	"vectormath/vectormath.h"
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -98,7 +99,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1511886171 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.cpp
+1513183123 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.cpp
 	<stdio.h>
 	<string>
 	<vector>
@@ -110,5 +111,35 @@
 	<GL/glew.h>
 	"LoadShaders.hpp"
 
-1511886489 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.hpp
+1513183154 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.hpp
+
+1512503648 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vec_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\quat_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\mat_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vec_aos_v.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\quat_aos_v.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\mat_aos_v.h
 

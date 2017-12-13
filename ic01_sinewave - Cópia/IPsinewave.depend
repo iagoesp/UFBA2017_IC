@@ -72,7 +72,7 @@
 
 1510846693 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\controls.hpp
 
-1512519902 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\main.cpp
+1511888637 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\main.cpp
 	<vector>
 	<iostream>
 	<string>
@@ -111,4 +111,37 @@
 	"LoadShaders.hpp"
 
 1511886489 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.hpp
+
+1510847727 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510846693 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave - cópia\controls.hpp
+
+1512515153 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1512515216 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave - cópia\loadshaders.hpp
+
+1511888637 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
 

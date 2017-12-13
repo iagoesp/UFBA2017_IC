@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-
 using namespace std;
 
 #include <stdlib.h>
@@ -14,12 +13,14 @@ using namespace std;
 
 #include "LoadShaders.hpp"
 
-GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path, const char * evaluation_file_path, const char * fragment_file_path){
+GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path){
+//GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path, const char * evaluation_file_path, const char * fragment_file_path){
+
 	// Create the shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-	GLuint ControlShaderID = glCreateShader(GL_TESS_CONTROL_SHADER);
-	GLuint EvaluationShaderID = glCreateShader(GL_TESS_EVALUATION_SHADER);
+	//GLuint ControlShaderID = glCreateShader(GL_TESS_CONTROL_SHADER);
+	//GLuint EvaluationShaderID = glCreateShader(GL_TESS_EVALUATION_SHADER);
 
 
 	// Read the Vertex Shader code from the file
@@ -36,7 +37,7 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		return 0;
 	}
 
-
+/*
 	std::string TessControlShaderCode;
 	std::ifstream TessControlStream(control_file_path, std::ios::in);
 	if(TessControlStream.is_open()){
@@ -63,7 +64,7 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		getchar();
 		return 0;
 	}
-
+*/
 	// Read the Fragment Shader code from the file
 	std::string FragmentShaderCode;
 	std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
@@ -98,7 +99,7 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 	}
 
 
-
+/*
 // Compile Tesselation Control Shader
 	printf("Compiling shader : %s\n", control_file_path);
 	char const * TessControlSourcePointer = TessControlShaderCode.c_str();
@@ -128,7 +129,7 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		glGetShaderInfoLog(EvaluationShaderID, InfoLogLength, NULL, &EvaluationShaderErrorMessage[0]);
 		printf("%s\n", &EvaluationShaderErrorMessage[0]);
 	}
-
+*/
 // Compile Fragment Shader
 	printf("Compiling shader : %s\n", fragment_file_path);
 	char const * FragmentSourcePointer = FragmentShaderCode.c_str();
@@ -149,8 +150,8 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 	printf("Linking program\n");
 	GLuint ProgramID = glCreateProgram();
 	glAttachShader(ProgramID, VertexShaderID);
-	glAttachShader(ProgramID, ControlShaderID);
-	glAttachShader(ProgramID, EvaluationShaderID);
+	//glAttachShader(ProgramID, ControlShaderID);
+	//glAttachShader(ProgramID, EvaluationShaderID);
 	glAttachShader(ProgramID, FragmentShaderID);
 	glLinkProgram(ProgramID);
 
@@ -165,13 +166,13 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 
 
 	glDetachShader(ProgramID, VertexShaderID);
-	glDetachShader(ProgramID, ControlShaderID);
-	glDetachShader(ProgramID, EvaluationShaderID);
+	//glDetachShader(ProgramID, ControlShaderID);
+	//glDetachShader(ProgramID, EvaluationShaderID);
     glDetachShader(ProgramID, FragmentShaderID);
 
 	glDeleteShader(VertexShaderID);
-    glDeleteShader(ControlShaderID);
-	glDeleteShader(EvaluationShaderID);
+    //glDeleteShader(ControlShaderID);
+	//glDeleteShader(EvaluationShaderID);
 	glDeleteShader(FragmentShaderID);
 
 
