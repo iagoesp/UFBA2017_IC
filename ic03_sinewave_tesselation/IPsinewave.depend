@@ -143,3 +143,67 @@
 
 1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\mat_aos_v.h
 
+1513211530 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\controls.hpp
+
+1513211530 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.hpp
+
+1513223317 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos_v.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos_v.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos_v.h
+

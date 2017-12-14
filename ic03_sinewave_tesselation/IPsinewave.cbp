@@ -38,15 +38,16 @@
 			<Add library="opengl32" />
 			<Add library="gdi32" />
 		</Linker>
+		<Unit filename="Geodesic.Fragment" />
+		<Unit filename="Geodesic.Geometry" />
+		<Unit filename="Geodesic.TessControl" />
+		<Unit filename="Geodesic.TessEval" />
+		<Unit filename="Geodesic.Vertex" />
 		<Unit filename="LoadShaders.cpp" />
 		<Unit filename="LoadShaders.hpp" />
 		<Unit filename="controls.cpp" />
 		<Unit filename="controls.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="sinewaveshader.cont" />
-		<Unit filename="sinewaveshader.eval" />
-		<Unit filename="sinewaveshader.frag" />
-		<Unit filename="sinewaveshader.vert" />
 		<Extensions>
 			<code_completion />
 			<envvars />
