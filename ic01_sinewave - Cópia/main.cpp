@@ -84,19 +84,15 @@ int main(int argv, char** argc){
     const GLfloat meshSize = 40.0;
     float tamAmostra = meshSize / (float)index;
 
-    cout<<"vertices"<<endl;
 	for (GLfloat i = 0 ; i <= index ; i+=1.0){
 		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-            cout<<"("<<i<<", "<<j<<")"<<"   ";
 			vertices.push_back(i*tamAmostra);
 			vertices.push_back(j*tamAmostra);
         }
-        cout<<endl<<endl;
 	}
 
 	for (GLuint i = 0 ; i < index ; i++){
 		for (GLuint j = 0 ; j < index ; j++) {
-            cout<<"("<<i<<", "<<j<<")"<<"   ";
 			indices.push_back( i*(index+1) 		+ j);		// V0
 			indices.push_back( i*(index+1) 		+ (j+1));	// V1
 			indices.push_back( (i+1)*(index+1) 	+ j);		// V2
@@ -105,7 +101,6 @@ int main(int argv, char** argc){
 			indices.push_back( (i+1)*(index+1) 	+ (j+1));	// V3
 			indices.push_back( (i+1)*(index+1) 	+ j);		// V2
 		}
-	    cout<<endl;
 	}
 
 	// Load it into a VBO
