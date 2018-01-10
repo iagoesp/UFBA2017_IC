@@ -127,3 +127,67 @@
 	"Shader.h"
 	<fstream>
 
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\app.cpp
+	"App.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\app.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<string>
+	<windows.h>
+	<memory>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\ch09-02-tess-teapot.cpp
+	"RenderSystem.h"
+	<memory>
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\rendersystem.h
+	"App.h"
+	"Rectangle.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\rectangle.h
+	"Shader.h"
+	"Utility.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\shader.h
+	<GL/glew.h>
+	<iostream>
+	<vector>
+	<string>
+	<windows.h>
+	<memory>
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\utility.h
+	<gl/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\rectangle.cpp
+	"Rectangle.h"
+	<glm/glm.hpp>
+	<glfw/glfw3.h>
+	"mat.h"
+	"Teapot.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\mat.h
+	<iostream>
+	"vec.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\vec.h
+	<math.h>
+	<iostream>
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\teapot.h
+	<GL/gl.h>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\rendersystem.cpp
+	"RenderSystem.h"
+	<glm/glm.hpp>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\teapot\shader.cpp
+	"Shader.h"
+	<fstream>
+

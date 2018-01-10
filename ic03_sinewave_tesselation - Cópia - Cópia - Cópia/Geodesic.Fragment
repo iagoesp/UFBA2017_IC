@@ -1,10 +1,20 @@
 #version 400 core
 
+in vec3 gFacetNormal;
+in vec3 gTriDistance;
+in vec3 gPatchDistance;
+in float gPrimitive;
+in float y;
+
 out vec4 fragColor;
+
+uniform vec3 LightPosition;
+uniform vec3 DiffuseMaterial;
+uniform vec3 AmbientMaterial;
 
 void main()
 {
-    float new_y = 2.0;
+    float new_y = y;
 
     if (new_y > 1.0)
         fragColor = vec4( 1.0 , 0.0 , 0.0 , 1.0); //escala 1

@@ -1,10 +1,14 @@
 #version 400 core
 
-in vec4 Position;
-out vec3 vPosition;
+in vec2 position;
 
-void main()
-{
-    vPosition = Position.xyz;
+uniform float amp;
+
+out float y;
+out vec2 vPosition;
+
+void main(){
+
+    vPosition = vec2(position.x, position.y);
 }
 

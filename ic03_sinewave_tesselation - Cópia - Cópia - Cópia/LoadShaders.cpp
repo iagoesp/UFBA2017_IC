@@ -14,15 +14,12 @@ using namespace std;
 
 #include "LoadShaders.hpp"
 
-//GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path, const char * evaluation_file_path, const char * geometry_file_path, const char * fragment_file_path){
-GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path, const char * evaluation_file_path, const char * fragment_file_path){
-
+GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path, const char * evaluation_file_path, const char * geometry_file_path, const char * fragment_file_path){
 	// Create the shaders
-
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint ControlShaderID = glCreateShader(GL_TESS_CONTROL_SHADER);
 	GLuint EvaluationShaderID = glCreateShader(GL_TESS_EVALUATION_SHADER);
-    //GLuint GeometryShaderID = glCreateShader(GL_GEOMETRY_SHADER);
+    GLuint GeometryShaderID = glCreateShader(GL_GEOMETRY_SHADER);
    	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
 
 
@@ -70,19 +67,19 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		return 0;
 	}
 
-//    // Read the Geometry Shader code from the file
-//	std::string GeometryShaderCode;
-//	std::ifstream GeometryShaderStream(geometry_file_path, std::ios::in);
-//	if(GeometryShaderStream.is_open()){
-//		std::string Line = "";
-//		while(getline(GeometryShaderStream, Line))
-//			GeometryShaderCode += "\n" + Line;
-//		GeometryShaderStream.close();
-//	}else{
-//		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", geometry_file_path);
-//		getchar();
-//		return 0;
-//	}
+    // Read the Geometry Shader code from the file
+	std::string GeometryShaderCode;
+	std::ifstream GeometryShaderStream(geometry_file_path, std::ios::in);
+	if(GeometryShaderStream.is_open()){
+		std::string Line = "";
+		while(getline(GeometryShaderStream, Line))
+			GeometryShaderCode += "\n" + Line;
+		GeometryShaderStream.close();
+	}else{
+		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", geometry_file_path);
+		getchar();
+		return 0;
+	}
 
 	// Read the Fragment Shader code from the file
 	std::string FragmentShaderCode;
@@ -149,20 +146,20 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		printf("%s\n", &EvaluationShaderErrorMessage[0]);
 	}
 
-//// Compile Geometry Shader
-//	printf("Compiling shader : %s\n", geometry_file_path);
-//	char const * GeometrySourcePointer = GeometryShaderCode.c_str();
-//	glShaderSource(GeometryShaderID, 1, &GeometrySourcePointer , NULL);
-//	glCompileShader(GeometryShaderID);
-//
-//	// Check Geometry Shader
-//	glGetShaderiv(GeometryShaderID, GL_COMPILE_STATUS, &Result);
-//	glGetShaderiv(GeometryShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-//	if ( InfoLogLength > 0 ){
-//		std::vector<char> GeometryShaderErrorMessage(InfoLogLength+1);
-//		glGetShaderInfoLog(GeometryShaderID, InfoLogLength, NULL, &GeometryShaderErrorMessage[0]);
-//		printf("%s\n", &GeometryShaderErrorMessage[0]);
-//	}
+// Compile Geometry Shader
+	printf("Compiling shader : %s\n", geometry_file_path);
+	char const * GeometrySourcePointer = GeometryShaderCode.c_str();
+	glShaderSource(GeometryShaderID, 1, &GeometrySourcePointer , NULL);
+	glCompileShader(GeometryShaderID);
+
+	// Check Geometry Shader
+	glGetShaderiv(GeometryShaderID, GL_COMPILE_STATUS, &Result);
+	glGetShaderiv(GeometryShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
+	if ( InfoLogLength > 0 ){
+		std::vector<char> GeometryShaderErrorMessage(InfoLogLength+1);
+		glGetShaderInfoLog(GeometryShaderID, InfoLogLength, NULL, &GeometryShaderErrorMessage[0]);
+		printf("%s\n", &GeometryShaderErrorMessage[0]);
+	}
 
 // Compile Fragment Shader
 	printf("Compiling shader : %s\n", fragment_file_path);
@@ -186,7 +183,7 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 	glAttachShader(ProgramID, VertexShaderID);
 	glAttachShader(ProgramID, ControlShaderID);
 	glAttachShader(ProgramID, EvaluationShaderID);
-    //glAttachShader(ProgramID, GeometryShaderID);
+    glAttachShader(ProgramID, GeometryShaderID);
 	glAttachShader(ProgramID, FragmentShaderID);
 	glLinkProgram(ProgramID);
 
@@ -203,13 +200,13 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 	glDetachShader(ProgramID, VertexShaderID);
 	glDetachShader(ProgramID, ControlShaderID);
 	glDetachShader(ProgramID, EvaluationShaderID);
-    //glDetachShader(ProgramID, GeometryShaderID);
+    glDetachShader(ProgramID, GeometryShaderID);
     glDetachShader(ProgramID, FragmentShaderID);
 
 	glDeleteShader(VertexShaderID);
     glDeleteShader(ControlShaderID);
 	glDeleteShader(EvaluationShaderID);
-    //glDeleteShader(GeometryShaderID);
+    glDeleteShader(GeometryShaderID);
 	glDeleteShader(FragmentShaderID);
 
 

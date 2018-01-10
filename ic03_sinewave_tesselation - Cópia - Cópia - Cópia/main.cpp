@@ -21,6 +21,7 @@ using namespace std;
 
 static GLsizei IndexCount;
 static const GLuint PositionSlot = 0;
+static Matrix3 NormalMatrix;
 static float TessLevelInner;
 static float TessLevelOuter;
 
@@ -69,40 +70,32 @@ int main(int argv, char** argc){
 
 	// Cull triangles which normal is not towards the camera
 	glEnable(GL_CULL_FACE);
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    // Create the VAO:
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-	// Create and compile our GLSL program from the shaders
-	//GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Geometry", "Geodesic.Fragment");
-	GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Fragment");
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+	GLuint VertexArrayID;
+	glGenVertexArrays(1, &VertexArrayID);
+	glBindVertexArray(VertexArrayID);
+
+	// Create and compile our GLSL program from the shaders
+	GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Geometry", "Geodesic.Fragment");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID             = glGetUniformLocation(programID, "MVP");
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
+	GLuint NormalMatrixID       = glGetUniformLocation(programID, "NormalMatrix");
+    GLuint LightPositionID      = glGetUniformLocation(programID, "LightPosition");
+    GLuint AmbientMaterialID    = glGetUniformLocation(programID, "AmbientMaterial");
+    GLuint DiffuseMaterialID    = glGetUniformLocation(programID, "DiffuseMaterial");
     GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
 
-
-
-    vector<GLfloat> vertices;
     vector<unsigned short> indices;
     const GLuint index = 40.0;
     const GLfloat meshSize = 40.0;
     float tamAmostra = meshSize / (float)index;
-
-    for (GLfloat i = 0 ; i <= index ; i+=1.0){
-		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-			vertices.push_back(i*tamAmostra);
-			vertices.push_back(j*tamAmostra);
-        }
-	}
-
-	for (GLuint i = 0 ; i < index ; i++){
+    for (GLuint i = 0 ; i < index ; i++){
 		for (GLuint j = 0 ; j < index ; j++) {
 			indices.push_back( i*(index+1) 		+ j);		// V0
 			indices.push_back( i*(index+1) 		+ (j+1));	// V1
@@ -114,11 +107,19 @@ int main(int argv, char** argc){
 		}
 	}
 
+    vector<GLfloat> vertices;
+    for (GLfloat i = 0 ; i <= index ; i+=1.0){
+		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
+			vertices.push_back(i*tamAmostra);
+			vertices.push_back(j*tamAmostra);
+        }
+	}
+
     IndexCount = sizeof(indices) / sizeof(indices[0]);
 
     // Create the VBO for positions:
     GLuint vertexbuffer;
-    GLsizei stride = 2 * sizeof(GLfloat);
+    GLsizei stride = 3 * sizeof(float);
 
     glGenBuffers(1, &vertexbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -129,7 +130,7 @@ int main(int argv, char** argc){
     GLuint elementbuffer;
     glGenBuffers(1, &elementbuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0] , GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
     // For speed computation
     //double lastTime = glfwGetTime(); int nbFrames = 0;
     TessLevelInner = 1.0f;
@@ -167,20 +168,30 @@ int main(int argv, char** argc){
         if (glfwGetKey( window, GLFW_KEY_N ) == GLFW_PRESS){
             TessLevelOuter = TessLevelOuter > 1 ? TessLevelOuter - 1 : 1;
         }
+        //    NormalMatrix = M4GetUpper3x3(ViewMatrix, ModelMatrix);
+        Matrix3 nm = M3Transpose(NormalMatrix);
+        float packed[9] = { nm.col0.x, nm.col1.x, nm.col2.x,
+                            nm.col0.y, nm.col1.y, nm.col2.y,
+                            nm.col0.z, nm.col1.z, nm.col2.z };
+        Vector4 lightPosition = V4MakeFromElems(0.25, 0.25, 1, 0);
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
+        glUniformMatrix3fv(NormalMatrixID, 1, 0, &packed[0]);
+        glUniformMatrix3fv(LightPositionID, 1, GL_FALSE, &lightPosition.x);
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
+        glUniform3f(AmbientMaterialID, 0.04f, 0.04f, 0.04f);
+        glUniform3f(DiffuseMaterialID, 0, 0.75, 0.75);
 
 
         // 1rst attribute buffer : vertices
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, stride, (void*)0);
+        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
         // Index buffer
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
@@ -202,7 +213,7 @@ int main(int argv, char** argc){
     glDeleteBuffers(1, &vertexbuffer);
     glDeleteBuffers(1, &elementbuffer);
     glDeleteProgram(programID);
-    glDeleteVertexArrays(1, &vao);
+    glDeleteVertexArrays(1, &VertexArrayID);
 
     // Close OpenGL window and terminate GLFW
     glfwTerminate();
