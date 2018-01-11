@@ -2,15 +2,13 @@
 
 in vec2 position;
 
-uniform mat4 MVP;
 uniform float amp;
 
 out float y;
-out vec3 vPosition;
 
 void main(){
     y = cos((position.x)) * sin((position.y));
     y = y*amp;
-    vPosition = vec3(position.x, y, position.y);
+    gl_Position = vec4(position.x, y, position.y, 1.0);
 }
 

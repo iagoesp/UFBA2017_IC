@@ -70,26 +70,25 @@ int main(int argv, char** argc){
 
 	// Cull triangles which normal is not towards the camera
 	glEnable(GL_CULL_FACE);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Geometry", "Geodesic.Fragment");
+    GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Fragment");
+//	GLuint programID = LoadShaders( "Geodesic.Vertex", "Geodesic.Fragment");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID             = glGetUniformLocation(programID, "MVP");
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
-	GLuint NormalMatrixID       = glGetUniformLocation(programID, "NormalMatrix");
-    GLuint LightPositionID      = glGetUniformLocation(programID, "LightPosition");
-    GLuint AmbientMaterialID    = glGetUniformLocation(programID, "AmbientMaterial");
-    GLuint DiffuseMaterialID    = glGetUniformLocation(programID, "DiffuseMaterial");
     GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
+    GLuint freqValue        = glGetUniformLocation(programID, "freq");
+	GLuint ampValue         = glGetUniformLocation(programID, "amp");
 
     vector<unsigned short> indices;
     const GLuint index = 40.0;
@@ -168,24 +167,29 @@ int main(int argv, char** argc){
         if (glfwGetKey( window, GLFW_KEY_N ) == GLFW_PRESS){
             TessLevelOuter = TessLevelOuter > 1 ? TessLevelOuter - 1 : 1;
         }
+
+        float freq = 3.0, amp = 2.0;
+
         //    NormalMatrix = M4GetUpper3x3(ViewMatrix, ModelMatrix);
-        Matrix3 nm = M3Transpose(NormalMatrix);
-        float packed[9] = { nm.col0.x, nm.col1.x, nm.col2.x,
-                            nm.col0.y, nm.col1.y, nm.col2.y,
-                            nm.col0.z, nm.col1.z, nm.col2.z };
-        Vector4 lightPosition = V4MakeFromElems(0.25, 0.25, 1, 0);
+//        Matrix3 nm = M3Transpose(NormalMatrix);
+//        float packed[9] = { nm.col0.x, nm.col1.x, nm.col2.x,
+//                            nm.col0.y, nm.col1.y, nm.col2.y,
+//                            nm.col0.z, nm.col1.z, nm.col2.z };
+//        Vector4 lightPosition = V4MakeFromElems(0.25, 0.25, 1, 0);
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
-        glUniformMatrix3fv(NormalMatrixID, 1, 0, &packed[0]);
-        glUniformMatrix3fv(LightPositionID, 1, GL_FALSE, &lightPosition.x);
+//        glUniformMatrix3fv(NormalMatrixID, 1, 0, &packed[0]);
+//        glUniformMatrix3fv(LightPositionID, 1, GL_FALSE, &lightPosition.x);
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
+        glUniform1f(freqValue,freq);
+        glUniform1f(ampValue,amp);
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
-        glUniform3f(AmbientMaterialID, 0.04f, 0.04f, 0.04f);
-        glUniform3f(DiffuseMaterialID, 0, 0.75, 0.75);
+//        glUniform3f(AmbientMaterialID, 0.04f, 0.04f, 0.04f);
+//        glUniform3f(DiffuseMaterialID, 0, 0.75, 0.75);
 
 
         // 1rst attribute buffer : vertices
@@ -197,7 +201,7 @@ int main(int argv, char** argc){
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
         // Draw the triangles !
-        glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
+        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
         glDisableVertexAttribArray(0);
 

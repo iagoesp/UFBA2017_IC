@@ -407,7 +407,7 @@
 
 1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\controls.hpp
 
-1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.cpp
+1515697983 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.cpp
 	<stdio.h>
 	<string>
 	<vector>
@@ -419,9 +419,9 @@
 	<GL/glew.h>
 	"LoadShaders.hpp"
 
-1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.hpp
+1515697927 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.hpp
 
-1515542704 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\main.cpp
+1515698024 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\main.cpp
 	<vector>
 	<iostream>
 	<string>
