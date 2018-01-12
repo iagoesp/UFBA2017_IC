@@ -50,3 +50,54 @@
 	"Shader.h"
 	<fstream>
 
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\app.cpp
+	"App.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\app.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<iostream>
+	<string>
+	<windows.h>
+	<memory>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\ch09-01-tess-quad.cpp
+	"RenderSystem.h"
+	<memory>
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\rendersystem.h
+	"App.h"
+	"Rectangle.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\rectangle.h
+	"Shader.h"
+	"Utility.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\shader.h
+	<GL/glew.h>
+	<iostream>
+	<vector>
+	<string>
+	<windows.h>
+	<memory>
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\utility.h
+	<gl/glew.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stdlib.h>
+	<stdio.h>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\rectangle.cpp
+	"Rectangle.h"
+	<glm/glm.hpp>
+	<glfw/glfw3.h>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\rendersystem.cpp
+	"RenderSystem.h"
+	<glm/glm.hpp>
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\quad\shader.cpp
+	"Shader.h"
+	<fstream>
+

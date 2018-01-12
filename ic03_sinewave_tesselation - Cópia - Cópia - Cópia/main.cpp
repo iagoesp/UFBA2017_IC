@@ -21,7 +21,6 @@ using namespace std;
 
 static GLsizei IndexCount;
 static const GLuint PositionSlot = 0;
-static Matrix3 NormalMatrix;
 static float TessLevelInner;
 static float TessLevelOuter;
 
@@ -66,11 +65,11 @@ int main(int argv, char** argc){
 	glEnable(GL_DEPTH_TEST);
 
 	// Accept fragment if it closer to the camera than the former one
-	glDepthFunc(GL_LESS);
+	//glDepthFunc(GL_LESS);
 
 	// Cull triangles which normal is not towards the camera
-	glEnable(GL_CULL_FACE);
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glEnable(GL_CULL_FACE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -87,8 +86,8 @@ int main(int argv, char** argc){
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
     GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
-    GLuint freqValue        = glGetUniformLocation(programID, "freq");
-	GLuint ampValue         = glGetUniformLocation(programID, "amp");
+    GLuint freqValue            = glGetUniformLocation(programID, "freq");
+	GLuint ampValue             = glGetUniformLocation(programID, "amp");
 
     vector<unsigned short> indices;
     const GLuint index = 40.0;
@@ -129,16 +128,12 @@ int main(int argv, char** argc){
     GLuint elementbuffer;
     glGenBuffers(1, &elementbuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLushort), &indices[0], GL_STATIC_DRAW);
     // For speed computation
-    //double lastTime = glfwGetTime(); int nbFrames = 0;
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
 
     do{
-        // Measure speed
-        // double currentTime = glfwGetTime();//		nbFrames++; //		if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1sec ago //			// printf and reset //			cout<<1000.0/double(nbFrames)<<"ms/frame\n";    //			nbFrames = 0;   //			lastTime += 1.0;    //}
-
         // Clear the screen
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -169,28 +164,16 @@ int main(int argv, char** argc){
         }
 
         float freq = 3.0, amp = 2.0;
-
-        //    NormalMatrix = M4GetUpper3x3(ViewMatrix, ModelMatrix);
-//        Matrix3 nm = M3Transpose(NormalMatrix);
-//        float packed[9] = { nm.col0.x, nm.col1.x, nm.col2.x,
-//                            nm.col0.y, nm.col1.y, nm.col2.y,
-//                            nm.col0.z, nm.col1.z, nm.col2.z };
-//        Vector4 lightPosition = V4MakeFromElems(0.25, 0.25, 1, 0);
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
-//        glUniformMatrix3fv(NormalMatrixID, 1, 0, &packed[0]);
-//        glUniformMatrix3fv(LightPositionID, 1, GL_FALSE, &lightPosition.x);
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
         glUniform1f(freqValue,freq);
         glUniform1f(ampValue,amp);
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
-//        glUniform3f(AmbientMaterialID, 0.04f, 0.04f, 0.04f);
-//        glUniform3f(DiffuseMaterialID, 0, 0.75, 0.75);
-
 
         // 1rst attribute buffer : vertices
         glEnableVertexAttribArray(0);
@@ -201,7 +184,7 @@ int main(int argv, char** argc){
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
         // Draw the triangles !
-        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
+        glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
         glDisableVertexAttribArray(0);
 
@@ -224,4 +207,3 @@ int main(int argv, char** argc){
 
     return 0;
 }
-

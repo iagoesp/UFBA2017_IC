@@ -21,7 +21,6 @@ using namespace std;
 
 static GLsizei IndexCount;
 static const GLuint PositionSlot = 0;
-static Matrix3 NormalMatrix;
 static float TessLevelInner;
 static float TessLevelOuter;
 
@@ -84,10 +83,6 @@ int main(int argv, char** argc){
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
-	GLuint NormalMatrixID       = glGetUniformLocation(programID, "NormalMatrix");
-    GLuint LightPositionID      = glGetUniformLocation(programID, "LightPosition");
-    GLuint AmbientMaterialID    = glGetUniformLocation(programID, "AmbientMaterial");
-    GLuint DiffuseMaterialID    = glGetUniformLocation(programID, "DiffuseMaterial");
     GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
 
@@ -188,30 +183,19 @@ int main(int argv, char** argc){
         if (glfwGetKey( window, GLFW_KEY_N ) == GLFW_PRESS){
             TessLevelOuter = TessLevelOuter > 1 ? TessLevelOuter - 1 : 1;
         }
-        //    NormalMatrix = M4GetUpper3x3(ViewMatrix, ModelMatrix);
-        Matrix3 nm = M3Transpose(NormalMatrix);
-        float packed[9] = { nm.col0.x, nm.col1.x, nm.col2.x,
-                            nm.col0.y, nm.col1.y, nm.col2.y,
-                            nm.col0.z, nm.col1.z, nm.col2.z };
-        Vector4 lightPosition = V4MakeFromElems(0.25, 0.25, 1, 0);
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
-        glUniformMatrix3fv(NormalMatrixID, 1, 0, &packed[0]);
-        glUniformMatrix3fv(LightPositionID, 1, GL_FALSE, &lightPosition.x);
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
-        glUniform3f(AmbientMaterialID, 0.04f, 0.04f, 0.04f);
-        glUniform3f(DiffuseMaterialID, 0, 0.75, 0.75);
-
 
         // 1rst attribute buffer : vertices
-        glEnableVertexAttribArray(PositionSlot);
+        glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, positions);
-        glVertexAttribPointer(PositionSlot, 3, GL_FLOAT, GL_FALSE, stride, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, 0);
 
         // Index buffer
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indices);
@@ -219,7 +203,7 @@ int main(int argv, char** argc){
         // Draw the triangles !
         glDrawElements(GL_PATCHES, IndexCount, GL_UNSIGNED_INT, 0);
 
-        glDisableVertexAttribArray(PositionSlot);
+        glDisableVertexAttribArray(0);
 
         // Swap buffers
         glfwSwapBuffers(window);
@@ -240,4 +224,3 @@ int main(int argv, char** argc){
 
     return 0;
 }
-
