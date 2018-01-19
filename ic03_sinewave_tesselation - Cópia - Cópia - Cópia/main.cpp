@@ -18,6 +18,7 @@ using namespace std;
 
 #include "LoadShaders.hpp"
 #include "controls.hpp"
+extern glm::vec3 position;
 
 static GLsizei IndexCount;
 static const GLuint PositionSlot = 0;
@@ -105,12 +106,25 @@ int main(int argv, char** argc){
 		}
 	}
 
+	        float freq = 3.0, amp = 2.0;
+
+    vector<glm::vec3> vec_y;
     vector<GLfloat> vertices;
+    float minn=100000000, maxx=-1000000000;
     for (GLfloat i = 0 ; i <= index ; i+=1.0){
 		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-			vertices.push_back(i*tamAmostra);
-			vertices.push_back(j*tamAmostra);
-        }
+      float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
+      y = y*amp;
+      if(y<minn) minn=y;
+      if(y>maxx) maxx=y;
+      glm::vec3 aux;
+      aux.x = i*tamAmostra;
+      aux.y = y;
+      aux.z = j*tamAmostra;
+      vec_y.push_back(aux);
+			vertices.push_back((float)(i*tamAmostra));
+			vertices.push_back((float)(j*tamAmostra));
+    }
 	}
 
     IndexCount = sizeof(indices) / sizeof(indices[0]);
@@ -132,6 +146,7 @@ int main(int argv, char** argc){
     // For speed computation
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
+    float minnn=100000000, maxxx=-1000000000;
 
     do{
         // Clear the screen
@@ -149,8 +164,23 @@ int main(int argv, char** argc){
 
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
-
-        if (glfwGetKey( window, GLFW_KEY_C ) == GLFW_PRESS){
+        float px = position.x; float py = position.y; float pz = position.z;
+        float vecx = 20.0; float vecy = (minn+maxx)/2; float vecz = 20.0;
+        float d = sqrt(pow( (float)(px - vecx) ,2) +
+                           pow( (float)(py - vecy) ,2) +
+                           pow( (float)(pz - vecz) ,2));
+                           cout<<"d = "<<d;
+        /*if(d<minnn) minnn=d;
+        if(d>maxxx) maxxx=d;*/
+        if (d<=20)             TessLevelInner = 32;
+        if (d<=30 && d>20)     TessLevelInner = 16;
+        else if(d<=40 && d>30)  TessLevelInner = 8;
+        else if(d<=50 && d>40)  TessLevelInner = 4;
+        else if(d<=60 && d>50)  TessLevelInner = 2;
+        else if(d>60)           TessLevelInner = 1;
+        TessLevelOuter = TessLevelInner;
+        //cout<<"     min = "<<minnn<<" e max = "<<maxxx<<endl;
+        /*if (glfwGetKey( window, GLFW_KEY_C ) == GLFW_PRESS){
            TessLevelInner+=1.0;
         }
         if (glfwGetKey( window, GLFW_KEY_V ) == GLFW_PRESS){
@@ -161,9 +191,8 @@ int main(int argv, char** argc){
         }
         if (glfwGetKey( window, GLFW_KEY_N ) == GLFW_PRESS){
             TessLevelOuter = TessLevelOuter > 1 ? TessLevelOuter - 1 : 1;
-        }
+        }*/
 
-        float freq = 3.0, amp = 2.0;
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
