@@ -106,16 +106,17 @@ int main(int argv, char** argc){
 		}
 	}
 
-	        float freq = 3.0, amp = 2.0;
+	        float freq = 3.0, amp = 4.0;
 
     vector<glm::vec3> vec_y;
     vector<GLfloat> vertices;
     float minn=100000000, maxx=-1000000000;
     for (GLfloat i = 0 ; i <= index ; i+=1.0){
 		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-      float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
-      y = y*amp;
-      if(y<minn) minn=y;
+        float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
+        y = y*amp;
+        //cout<<"y = "<< y<<endl;
+        if(y<minn) minn=y;
       if(y>maxx) maxx=y;
       glm::vec3 aux;
       aux.x = i*tamAmostra;
@@ -131,7 +132,7 @@ int main(int argv, char** argc){
 
     // Create the VBO for positions:
     GLuint vertexbuffer;
-    GLsizei stride = 3 * sizeof(float);
+    GLsizei stride = 2 * sizeof(float);
 
     glGenBuffers(1, &vertexbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -169,11 +170,11 @@ int main(int argv, char** argc){
         float d = sqrt(pow( (float)(px - vecx) ,2) +
                            pow( (float)(py - vecy) ,2) +
                            pow( (float)(pz - vecz) ,2));
-                           cout<<"d = "<<d;
+                           //cout<<"d = "<<d;
         /*if(d<minnn) minnn=d;
         if(d>maxxx) maxxx=d;*/
-        if (d<=20)             TessLevelInner = 32;
-        if (d<=30 && d>20)     TessLevelInner = 16;
+        if (d<=20)              TessLevelInner = 32;
+        else if (d<=30 && d>20) TessLevelInner = 16;
         else if(d<=40 && d>30)  TessLevelInner = 8;
         else if(d<=50 && d>40)  TessLevelInner = 4;
         else if(d<=60 && d>50)  TessLevelInner = 2;

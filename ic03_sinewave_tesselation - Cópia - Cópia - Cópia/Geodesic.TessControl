@@ -1,6 +1,7 @@
 #version 400 core
 
 layout(vertices = 3) out;
+
 in vec3 vPosition[];
 out vec3 tcPosition[];
 
@@ -13,6 +14,7 @@ void main(){
 
     tcPosition[ID] = vPosition[ID];
     if (ID == 0) {
+
         gl_TessLevelInner[0] = TessLevelInner;
         gl_TessLevelOuter[0] = TessLevelOuter;
         gl_TessLevelOuter[1] = TessLevelOuter;

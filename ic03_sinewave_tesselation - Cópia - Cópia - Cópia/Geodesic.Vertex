@@ -13,4 +13,3 @@ void main(){
     y = y*amp;
     vPosition = vec3(position.x, y, position.y);
 }
-

@@ -4,6 +4,8 @@ layout(triangles, equal_spacing, cw) in;
 
 in vec3 tcPosition[];
 
+out float p;
+
 uniform mat4 P;
 uniform mat4 V;
 uniform mat4 MVP;
@@ -15,6 +17,7 @@ void main(){
     vec3 p1 = gl_TessCoord.y * tcPosition[1];
     vec3 p2 = gl_TessCoord.z * tcPosition[2];
     tePosition = (p0 + p1 + p2);
+    p = tePosition.y;
     gl_Position = MVP * vec4(tePosition, 1.0);
 }
 
