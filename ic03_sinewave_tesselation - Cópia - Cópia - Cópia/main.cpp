@@ -70,7 +70,8 @@ int main(int argv, char** argc){
 
 	// Cull triangles which normal is not towards the camera
 	//glEnable(GL_CULL_FACE);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//	if()
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -106,26 +107,25 @@ int main(int argv, char** argc){
 		}
 	}
 
-	        float freq = 3.0, amp = 4.0;
-
+    float freq = 3.0, amp = 4.0;
     vector<glm::vec3> vec_y;
     vector<GLfloat> vertices;
     float minn=100000000, maxx=-1000000000;
     for (GLfloat i = 0 ; i <= index ; i+=1.0){
 		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-        float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
-        y = y*amp;
-        //cout<<"y = "<< y<<endl;
-        if(y<minn) minn=y;
-      if(y>maxx) maxx=y;
-      glm::vec3 aux;
-      aux.x = i*tamAmostra;
-      aux.y = y;
-      aux.z = j*tamAmostra;
-      vec_y.push_back(aux);
-			vertices.push_back((float)(i*tamAmostra));
-			vertices.push_back((float)(j*tamAmostra));
-    }
+            float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
+            y = y*amp;
+            //cout<<"y = "<< y<<endl;
+            if(y<minn) minn=y;
+            if(y>maxx) maxx=y;
+            glm::vec3 aux;
+            aux.x = i*tamAmostra;
+            aux.y = y;
+            aux.z = j*tamAmostra;
+            vec_y.push_back(aux);
+            vertices.push_back((float)(i*tamAmostra));
+            vertices.push_back((float)(j*tamAmostra));
+        }
 	}
 
     IndexCount = sizeof(indices) / sizeof(indices[0]);
@@ -144,6 +144,13 @@ int main(int argv, char** argc){
     glGenBuffers(1, &elementbuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLushort), &indices[0], GL_STATIC_DRAW);
+
+    GLuint normalbuffer;
+	glGenBuffers(1, &normalbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+//	glBufferData(GL_ARRAY_BUFFER, indexed_normals.size() * sizeof(glm::vec3), &indexed_normals[0], GL_STATIC_DRAW);
+
+
     // For speed computation
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
@@ -181,6 +188,15 @@ int main(int argv, char** argc){
         else if(d>60)           TessLevelInner = 1;
         TessLevelOuter = TessLevelInner;
         //cout<<"     min = "<<minnn<<" e max = "<<maxxx<<endl;
+        if (glfwGetKey( window, GLFW_KEY_L ) == GLFW_PRESS){
+           glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+        }
+        if (glfwGetKey( window, GLFW_KEY_F ) == GLFW_PRESS){
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+        }
+
         /*if (glfwGetKey( window, GLFW_KEY_C ) == GLFW_PRESS){
            TessLevelInner+=1.0;
         }

@@ -3,10 +3,14 @@
 layout(vertices = 3) out;
 
 in vec3 vPosition[];
+
 out vec3 tcPosition[];
 
 uniform float TessLevelInner;
 uniform float TessLevelOuter;
+
+float TessLevelnner;
+float TessLeveluter;
 
 #define ID gl_InvocationID
 
@@ -21,5 +25,15 @@ void main(){
         gl_TessLevelOuter[2] = TessLevelOuter;
     }
 
+    /*else if (ID == 10) {
+        TessLevelnner=TessLevelInner+32.0;
+        TessLeveluter=TessLevelnner;
+        gl_TessLevelInner[0] = TessLevelnner;
+        gl_TessLevelOuter[0] = TessLeveluter;
+        gl_TessLevelOuter[1] = TessLeveluter;
+        gl_TessLevelOuter[2] = TessLeveluter;
+    }*/
+
 }
+
 
