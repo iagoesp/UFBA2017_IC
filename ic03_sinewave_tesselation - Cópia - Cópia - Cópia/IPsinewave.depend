@@ -655,3 +655,67 @@
 
 1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
 
+1517161373 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.hpp
+
+1517161373 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.hpp
+
+1517494141 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos_v.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos_v.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
+

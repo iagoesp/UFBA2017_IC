@@ -86,9 +86,12 @@ int main(int argv, char** argc){
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
-    GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
-    GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
-    GLuint freqValue            = glGetUniformLocation(programID, "freq");
+  GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
+  GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
+  GLuint distanceID           = glGetUniformLocation(programID, "distance");
+  GLuint cameraPosIDX          = glGetUniformLocation(programID, "px");
+  GLuint cameraPosIDY          = glGetUniformLocation(programID, "py");
+  GLuint cameraPosIDZ          = glGetUniformLocation(programID, "pz");
 	GLuint ampValue             = glGetUniformLocation(programID, "amp");
 
     vector<unsigned short> indices;
@@ -146,14 +149,16 @@ int main(int argv, char** argc){
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLushort), &indices[0], GL_STATIC_DRAW);
 
     GLuint normalbuffer;
-	glGenBuffers(1, &normalbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+    glGenBuffers(1, &normalbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
 //	glBufferData(GL_ARRAY_BUFFER, indexed_normals.size() * sizeof(glm::vec3), &indexed_normals[0], GL_STATIC_DRAW);
 
 
     // For speed computation
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
+    float distance;
+    glm::vec3 camerapos = position;
     float minnn=100000000, maxxx=-1000000000;
 
     do{
@@ -175,8 +180,8 @@ int main(int argv, char** argc){
         float px = position.x; float py = position.y; float pz = position.z;
         float vecx = 20.0; float vecy = (minn+maxx)/2; float vecz = 20.0;
         float d = sqrt(pow( (float)(px - vecx) ,2) +
-                           pow( (float)(py - vecy) ,2) +
-                           pow( (float)(pz - vecz) ,2));
+                       pow( (float)(py - vecy) ,2) +
+                       pow( (float)(pz - vecz) ,2));
                            //cout<<"d = "<<d;
         /*if(d<minnn) minnn=d;
         if(d>maxxx) maxxx=d;*/
@@ -216,7 +221,9 @@ int main(int argv, char** argc){
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
-        glUniform1f(freqValue,freq);
+        glUniform1f(cameraPosIDX, px);
+        glUniform1f(cameraPosIDY, py);
+        glUniform1f(cameraPosIDZ, pz);
         glUniform1f(ampValue,amp);
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
