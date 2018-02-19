@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1518984528 source:c:\users\richardba\desktop\labirinto\textura.cpp
+	<GL/glut.h>
+	"load_texture.h"
+
+1518971535 c:\users\richardba\desktop\labirinto\load_texture.h
+	<stdio.h>
+
