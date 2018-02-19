@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1519057402 source:c:\users\richardba\desktop\labirinto\otherlab.cpp
+	<windows.h>
+	<GL/gl.h>
+	<GL/glut.h>
+	<math.h>
+	<iostream>
+
