@@ -1,0 +1,19 @@
+layout(vertices = 3) out;
+
+in vec3 vPos[];
+out vec3 tvPos[];
+
+#define ID gl_InvocationID
+
+void main()
+{
+  tvPos[ID] = vPos[ID];
+  if (ID == 0)
+  {
+    gl_TessLevelInner[0] = 4;
+    gl_TessLevelOuter[0] = 8;
+    gl_TessLevelOuter[1] = 8;
+    gl_TessLevelOuter[2] = 8;
+  }
+
+}
