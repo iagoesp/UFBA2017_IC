@@ -1,0 +1,17 @@
+layout(triangles, equal_spacing, cw) in;
+
+in vec3 tvPos[];
+uniform mat4 Projection;
+uniform mat4 View;
+
+out vec3 tePos;
+out float py;
+
+void main(){
+    vec3 p0 = gl_TessCoord.x * tvPos[0]; //tentei converter um vec3 por array, conforme o Tesselation Evaluation solicita
+    vec3 p1 = gl_TessCoord.y * tvPos[1];
+    vec3 p2 = gl_TessCoord.z * tvPos[2];
+    tePos = (p0 + p1 + p2);
+    py = tePos.y;                         //coloquei como tePos.y para verificar se há alguma mudança na malha
+    gl_Position = Projection * View * vec4(tePos, 1.0);
+}

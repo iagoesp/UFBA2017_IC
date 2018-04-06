@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="planet" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/planet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/planet" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="opengl32" />
+			<Add library="glad" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+		</Linker>
+		<Unit filename="List.hpp" />
+		<Unit filename="Main.cpp" />
+		<Unit filename="Shader.cpp" />
+		<Unit filename="Shader.hpp" />
+		<Unit filename="Simplex.hpp" />
+		<Unit filename="Utils.hpp" />
+		<Unit filename="shader.cont" />
+		<Unit filename="shader.eval" />
+		<Unit filename="shader.frag" />
+		<Unit filename="shader.vert" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

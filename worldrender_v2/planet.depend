@@ -1,0 +1,255 @@
+# depslib dependency file v1.0
+1519177838 source:c:\users\ricardo\workspace\planet\render.cpp
+	"Shader.hpp"
+	"Render.hpp"
+	"Logging.hpp"
+	"Pp.hpp"
+	<cstring>
+	<cassert>
+
+1516978403 c:\users\ricardo\workspace\planet\render.h
+	"math.h"
+	<glad/glad.h>
+
+1514961487 c:\users\ricardo\workspace\planet\math.h
+	<cmath>
+	<algorithm>
+	<glm/glm.hpp>
+
+1508546878 c:\users\ricardo\workspace\planet\vec3.h
+	"vec3.h"
+	"vec3.h"
+
+1508546878 c:\users\ricardo\workspace\planet\logging.h
+	<cstdio>
+
+1508546878 c:\users\ricardo\workspace\planet\pp.h
+
+1519852991 source:c:\users\ricardo\workspace\planet\main.cpp
+	<SDL2/SDL.h>
+	<glm/glm.hpp>
+	<iostream>
+	"Shader.hpp"
+	"List.hpp"
+	"Logging.hpp"
+	"Math.hpp"
+	"Simplex.hpp"
+
+1508546878 c:\users\ricardo\workspace\planet\list.h
+	<cstdlib>
+	<cassert>
+
+1508546878 c:\users\ricardo\workspace\planet\timing.h
+
+1508546878 c:\users\ricardo\workspace\planet\perlin.h
+
+1518818186 c:\users\ricardo\workspace\planet\simplex.hpp
+	<functional>
+	<array>
+	<random>
+	<math.h>
+	<stdlib.h>
+	<glm/detail/func_common.hpp>
+	<glm/geometric.hpp>
+	<glm/vec2.hpp>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat2x2.hpp>
+
+1519853094 c:\users\ricardo\workspace\planet\math.hpp
+	<SDL2/SDL.h>
+	<cmath>
+	<algorithm>
+	<glm/glm.hpp>
+
+1519177643 c:\users\ricardo\workspace\planet\render.hpp
+	"Math.hpp"
+	"string"
+	<glad/glad.h>
+
+1519177643 c:\users\ricardo\workspace\planet\list.hpp
+	<cstdlib>
+	<cassert>
+
+1518818092 c:\users\ricardo\workspace\planet\logging.hpp
+	<cstdio>
+
+1518818186 c:\users\ricardo\workspace\planet\timing.hpp
+
+1518818186 c:\users\ricardo\workspace\planet\pp.hpp
+
+1519852142 source:c:\users\ricardo\workspace\planet\shader.cpp
+	"Shader.hpp"
+	<string>
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	"Logging.hpp"
+	"Math.hpp"
+	<cstring>
+	<cassert>
+	<glad/glad.h>
+	<stdlib.h>
+	<string.h>
+
+1519851993 c:\users\ricardo\workspace\planet\shader.hpp
+	"Math.hpp"
+	"string"
+	<glad/glad.h>
+
+1520538845 source:c:\users\ricardo\workspace\worldrender\main.cpp
+	<SDL2/SDL.h>
+	<glm/glm.hpp>
+	<iostream>
+	<glad/glad.h>
+	"Shader.hpp"
+	"Utils.hpp"
+	"Simplex.hpp"
+
+1519869739 c:\users\ricardo\workspace\worldrender\shader.hpp
+	"Utils.hpp"
+	"string"
+	<glad/glad.h>
+
+1520537600 c:\users\ricardo\workspace\worldrender\utils.hpp
+	<SDL2/SDL.h>
+	<algorithm>
+	<cmath>
+	<cstdio>
+	<cstdlib>
+	<cassert>
+	<glm/glm.hpp>
+	<glad/glad.h>
+
+1518818186 c:\users\ricardo\workspace\worldrender\simplex.hpp
+	<functional>
+	<array>
+	<random>
+	<math.h>
+	<stdlib.h>
+	<glm/detail/func_common.hpp>
+	<glm/geometric.hpp>
+	<glm/vec2.hpp>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat2x2.hpp>
+
+1519869734 source:c:\users\ricardo\workspace\worldrender\shader.cpp
+	"Shader.hpp"
+	<string>
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	"Utils.hpp"
+	<cstring>
+	<cassert>
+	<glad/glad.h>
+	<stdlib.h>
+	<string.h>
+
+1521837118 source:c:\users\richardba\workspace\worldrender\main.cpp
+	<SDL2/SDL.h>
+	<glm/glm.hpp>
+	<iostream>
+	<glad/glad.h>
+	"Shader.hpp"
+	"Utils.hpp"
+	"Simplex.hpp"
+
+1521568708 c:\users\richardba\workspace\worldrender\shader.hpp
+	"Utils.hpp"
+	"string"
+	<glad/glad.h>
+
+1521568708 c:\users\richardba\workspace\worldrender\utils.hpp
+	<SDL2/SDL.h>
+	<algorithm>
+	<cmath>
+	<cstdio>
+	<cstdlib>
+	<cassert>
+	<glm/glm.hpp>
+	<glad/glad.h>
+
+1521568777 c:\users\richardba\workspace\worldrender\simplex.hpp
+	<functional>
+	<array>
+	<random>
+	<math.h>
+	<stdlib.h>
+	<glm/geometric.hpp>
+	<glm/vec2.hpp>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat2x2.hpp>
+
+1522717169 source:c:\users\richardba\workspace\worldrender\shader.cpp
+	"Shader.hpp"
+	<string>
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	"Utils.hpp"
+	<cstring>
+	<cassert>
+	<glad/glad.h>
+	<stdlib.h>
+	<string.h>
+
+1521837118 source:c:\users\richardba\workspace\worldrender1\main.cpp
+	<SDL2/SDL.h>
+	<glm/glm.hpp>
+	<iostream>
+	<glad/glad.h>
+	"Shader.hpp"
+	"Utils.hpp"
+	"Simplex.hpp"
+
+1521568708 c:\users\richardba\workspace\worldrender1\shader.hpp
+	"Utils.hpp"
+	"string"
+	<glad/glad.h>
+
+1521568708 c:\users\richardba\workspace\worldrender1\utils.hpp
+	<SDL2/SDL.h>
+	<algorithm>
+	<cmath>
+	<cstdio>
+	<cstdlib>
+	<cassert>
+	<glm/glm.hpp>
+	<glad/glad.h>
+
+1521568777 c:\users\richardba\workspace\worldrender1\simplex.hpp
+	<functional>
+	<array>
+	<random>
+	<math.h>
+	<stdlib.h>
+	<glm/geometric.hpp>
+	<glm/vec2.hpp>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat2x2.hpp>
+
+1522717169 source:c:\users\richardba\workspace\worldrender1\shader.cpp
+	"Shader.hpp"
+	<string>
+	<stdio.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	"Utils.hpp"
+	<cstring>
+	<cassert>
+	<glad/glad.h>
+	<stdlib.h>
+	<string.h>
+
