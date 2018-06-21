@@ -13,7 +13,10 @@ GLFWwindow* window;
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "glm/ext.hpp"
+
 using namespace glm;
+
 using namespace std;
 
 #include "LoadShaders.hpp"
@@ -86,13 +89,19 @@ int main(int argv, char** argc){
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
-  GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
-  GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
-  GLuint distanceID           = glGetUniformLocation(programID, "distance");
-  GLuint cameraPosIDX          = glGetUniformLocation(programID, "px");
-  GLuint cameraPosIDY          = glGetUniformLocation(programID, "py");
-  GLuint cameraPosIDZ          = glGetUniformLocation(programID, "pz");
+    GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
+    GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
+    GLuint distanceID           = glGetUniformLocation(programID, "distance");
+    GLuint cameraPosIDX         = glGetUniformLocation(programID, "px");
+    GLuint cameraPosIDY         = glGetUniformLocation(programID, "py");
+    GLuint cameraPosIDZ         = glGetUniformLocation(programID, "pz");
 	GLuint ampValue             = glGetUniformLocation(programID, "amp");
+	GLuint planeID              = glGetUniformLocation(programID, "planes");
+//	GLuint plane1ID              = glGetUniformLocation(programID, "plane[1]");
+//	GLuint plane2ID              = glGetUniformLocation(programID, "plane[2]");
+//	GLuint plane3ID              = glGetUniformLocation(programID, "plane[3]");
+//	GLuint plane4ID              = glGetUniformLocation(programID, "plane[4]");
+//	GLuint plane5ID              = glGetUniformLocation(programID, "plane[5]");
 
     vector<unsigned short> indices;
     const GLuint index = 40.0;
@@ -151,8 +160,6 @@ int main(int argv, char** argc){
     GLuint normalbuffer;
     glGenBuffers(1, &normalbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
-//	glBufferData(GL_ARRAY_BUFFER, indexed_normals.size() * sizeof(glm::vec3), &indexed_normals[0], GL_STATIC_DRAW);
-
 
     // For speed computation
     TessLevelInner = 1.0f;
@@ -160,6 +167,7 @@ int main(int argv, char** argc){
     float distance;
     glm::vec3 camerapos = position;
     float minnn=100000000, maxxx=-1000000000;
+    glm::vec4 plan[6];
 
     do{
         // Clear the screen
@@ -174,6 +182,38 @@ int main(int argv, char** argc){
         glm::mat4 ViewMatrix = getViewMatrix();
         glm::mat4 ModelMatrix = glm::mat4(1.0);
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
+
+        plan[0].x = -proj_view[0][3] - proj_view[0][0];
+        plan[0].y = -proj_view[1][3] - proj_view[1][0];
+        plan[0].z = -proj_view[2][3] - proj_view[2][0];
+        plan[0].w = -proj_view[3][3] - proj_view[3][0];
+
+        plan[1].x = -proj_view[0][3] + proj_view[0][0];
+        plan[1].y = -proj_view[1][3] + proj_view[1][0];
+        plan[1].z = -proj_view[2][3] + proj_view[2][0];
+        plan[1].w = -proj_view[3][3] + proj_view[3][0];
+
+        plan[2].x = -proj_view[0][3] - proj_view[0][1];
+        plan[2].y = -proj_view[1][3] - proj_view[1][1];
+        plan[2].z = -proj_view[2][3] - proj_view[2][1];
+        plan[2].w = -proj_view[3][3] - proj_view[3][1];
+
+        plan[3].x = -proj_view[0][3] + proj_view[0][1];
+        plan[3].y = -proj_view[1][3] + proj_view[1][1];
+        plan[3].z = -proj_view[2][3] + proj_view[2][1];
+        plan[3].w = -proj_view[3][3] + proj_view[3][1];
+
+        plan[4].x = -proj_view[0][3] - proj_view[0][2];
+        plan[4].y = -proj_view[1][3] - proj_view[1][2];
+        plan[4].z = -proj_view[2][3] - proj_view[2][2];
+        plan[4].w = -proj_view[3][3] - proj_view[3][2];
+
+        plan[5].x = -proj_view[0][3] + proj_view[0][2];
+        plan[5].y = -proj_view[1][3] + proj_view[1][2];
+        plan[5].z = -proj_view[2][3] + proj_view[2][2];
+        plan[5].w = -proj_view[3][3] + proj_view[3][2];
 
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
@@ -219,6 +259,7 @@ int main(int argv, char** argc){
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
+        glUniform4fv(planeID, 6, glm::value_ptr(plan[0]));
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
         glUniform1f(cameraPosIDX, px);
