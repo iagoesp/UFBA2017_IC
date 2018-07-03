@@ -36,8 +36,8 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		VertexShaderStream.close();
 	}else{
 		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", vertex_file_path);
-		getchar();
-		return 0;
+		//getchar();
+		exit(-1);
 	}
 
 
@@ -50,8 +50,8 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		TessControlStream.close();
 	}else{
 		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", control_file_path);
-		getchar();
-		return 0;
+		//getchar();
+		exit(-1);
 	}
 
 
@@ -64,8 +64,8 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		TessEvaluationStream.close();
 	}else{
 		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", evaluation_file_path);
-		getchar();
-		return 0;
+		//getchar();
+		exit(-1);
 	}
 //
 //    // Read the Geometry Shader code from the file
@@ -92,8 +92,8 @@ GLuint LoadShaders(const char * vertex_file_path, const char * control_file_path
 		FragmentShaderStream.close();
 	}else{
 		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", fragment_file_path);
-		getchar();
-		return 0;
+		//getchar();
+		exit(-1);
 	}
 
 	GLint Result = GL_FALSE;

@@ -8,7 +8,6 @@
 
 // Include GLFW
 #include <GLFW/glfw3.h>
-GLFWwindow* window;
 
 // Include GLM
 #include <glm/glm.hpp>
@@ -21,7 +20,10 @@ using namespace std;
 
 #include "LoadShaders.hpp"
 #include "controls.hpp"
+
 extern glm::vec3 position;
+
+GLFWwindow* window;
 
 static GLsizei IndexCount;
 static const GLuint PositionSlot = 0;
@@ -81,7 +83,7 @@ int main(int argv, char** argc){
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-    GLuint programID = LoadShaders( "Geodesic.Vertex",  "Geodesic.TessControl", "Geodesic.TessEval", "Geodesic.Fragment");
+    GLuint programID = LoadShaders( "Geodesic.vert",  "Geodesic.tesc", "Geodesic.tese", "Geodesic.frag");
 //	GLuint programID = LoadShaders( "Geodesic.Vertex", "Geodesic.Fragment");
 
 	// Get a handle for our "MVP" uniform
@@ -104,7 +106,7 @@ int main(int argv, char** argc){
 //	GLuint plane5ID              = glGetUniformLocation(programID, "plane[5]");
 
     vector<unsigned short> indices;
-    const GLuint index = 40.0;
+    const GLuint index = 40;
     const GLfloat meshSize = 40.0;
     float tamAmostra = meshSize / (float)index;
     for (GLuint i = 0 ; i < index ; i++){
@@ -184,7 +186,7 @@ int main(int argv, char** argc){
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
         glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
-
+/*
         plan[0].x = -proj_view[0][3] - proj_view[0][0];
         plan[0].y = -proj_view[1][3] - proj_view[1][0];
         plan[0].z = -proj_view[2][3] - proj_view[2][0];
@@ -214,7 +216,7 @@ int main(int argv, char** argc){
         plan[5].y = -proj_view[1][3] + proj_view[1][2];
         plan[5].z = -proj_view[2][3] + proj_view[2][2];
         plan[5].w = -proj_view[3][3] + proj_view[3][2];
-
+*/
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
         float px = position.x; float py = position.y; float pz = position.z;
@@ -259,12 +261,12 @@ int main(int argv, char** argc){
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
-        glUniform4fv(planeID, 6, glm::value_ptr(plan[0]));
+//        glUniform4fv(planeID, 6, glm::value_ptr(plan[0]));
         glUniform1f( TessLevelInnerID, TessLevelInner );
         glUniform1f( TessLevelOuterID, TessLevelOuter );
-        glUniform1f(cameraPosIDX, px);
-        glUniform1f(cameraPosIDY, py);
-        glUniform1f(cameraPosIDZ, pz);
+//        glUniform1f(cameraPosIDX, px);
+//        glUniform1f(cameraPosIDY, py);
+//        glUniform1f(cameraPosIDZ, pz);
         glUniform1f(ampValue,amp);
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
