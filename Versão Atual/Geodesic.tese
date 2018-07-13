@@ -3,6 +3,7 @@
 layout(triangles, equal_spacing, cw) in;
 
 //uniform vec4 planes[6];
+
 uniform mat4 P;
 uniform mat4 V;
 uniform mat4 MVP;
@@ -34,19 +35,6 @@ void main(){
     vcColor = (c0 + c1 + c2);
 
     p = tePosition.y;
-    /*
-    bool point_inside = true;
-    for (int i = 0; i < 6; ++i){
-        if (planes[i].x * tePosition.x + planes[i].y * tePosition.y +
-            planes[i].z * tePosition.z + planes[i].w <= 0){
-                point_inside = true;
-        }
-        else{
-            point_inside = false;
-            break;
-        }
-    }
-    if(point_inside) */
-        gl_Position = MVP * vec4(tePosition, 1.0);
+    gl_Position = MVP * vec4(tePosition, 1.0);
 }
 

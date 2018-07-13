@@ -10,8 +10,6 @@ out vec3 tcPosition[];
 out vec3 tcNormal[];
 out vec4 tcColor[];
 
-uniform float TessLevelInner;
-uniform float TessLevelOuter;
 uniform float px;
 uniform float py;
 uniform float pz;
@@ -44,10 +42,10 @@ void main(){
         vec3 vPos = vPosition[0];
         TessLevelnner = LOD(vPos, px, py, pz);
         TessLeveluter = LOD(vPos, px, py, pz);
-        gl_TessLevelInner[0] = TessLevelnner;
-        gl_TessLevelOuter[0] = TessLeveluter;
-        gl_TessLevelOuter[1] = TessLeveluter;
-        gl_TessLevelOuter[2] = TessLeveluter;
+        gl_TessLevelInner[0] = 0;//TessLevelnner;
+        gl_TessLevelOuter[0] = 1;//TessLeveluter;
+        gl_TessLevelOuter[1] = 4;//TessLeveluter;
+        gl_TessLevelOuter[2] = 1;//TessLeveluter;
     }
 
     /*else if (ID == 10) {

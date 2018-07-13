@@ -91,6 +91,7 @@ int main(int argv, char** argc){
 	GLuint ModelMatrixID        = glGetUniformLocation(programID, "M");
 	GLuint ViewMatrixID         = glGetUniformLocation(programID, "V");
 	GLuint ProjectionMatrixID   = glGetUniformLocation(programID, "P");
+	GLuint NormalMatrixID       = glGetUniformLocation(programID, "N");
     GLuint TessLevelInnerID     = glGetUniformLocation(programID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterID     = glGetUniformLocation(programID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
     GLuint distanceID           = glGetUniformLocation(programID, "distance");
@@ -98,12 +99,7 @@ int main(int argv, char** argc){
     GLuint cameraPosIDY         = glGetUniformLocation(programID, "py");
     GLuint cameraPosIDZ         = glGetUniformLocation(programID, "pz");
 	GLuint ampValue             = glGetUniformLocation(programID, "amp");
-	GLuint planeID              = glGetUniformLocation(programID, "planes");
-//	GLuint plane1ID              = glGetUniformLocation(programID, "plane[1]");
-//	GLuint plane2ID              = glGetUniformLocation(programID, "plane[2]");
-//	GLuint plane3ID              = glGetUniformLocation(programID, "plane[3]");
-//	GLuint plane4ID              = glGetUniformLocation(programID, "plane[4]");
-//	GLuint plane5ID              = glGetUniformLocation(programID, "plane[5]");
+	//GLuint planeID              = glGetUniformLocation(programID, "planes");
 
     vector<unsigned short> indices;
     const GLuint index = 40;
@@ -121,22 +117,12 @@ int main(int argv, char** argc){
 		}
 	}
 
-    float freq = 3.0, amp = 4.0;
+    float amp = 4.0;
     vector<glm::vec3> vec_y;
     vector<GLfloat> vertices;
     float minn=100000000, maxx=-1000000000;
     for (GLfloat i = 0 ; i <= index ; i+=1.0){
 		for (GLfloat j = 0 ; j <= index ; j+=1.0) {
-            float y = cos((i*tamAmostra)) * sin((j*tamAmostra));
-            y = y*amp;
-            //cout<<"y = "<< y<<endl;
-            if(y<minn) minn=y;
-            if(y>maxx) maxx=y;
-            glm::vec3 aux;
-            aux.x = i*tamAmostra;
-            aux.y = y;
-            aux.z = j*tamAmostra;
-            vec_y.push_back(aux);
             vertices.push_back((float)(i*tamAmostra));
             vertices.push_back((float)(j*tamAmostra));
         }
@@ -146,7 +132,7 @@ int main(int argv, char** argc){
 
     // Create the VBO for positions:
     GLuint vertexbuffer;
-    GLsizei stride = 2 * sizeof(float);
+    //GLsizei stride = 2 * sizeof(float);
 
     glGenBuffers(1, &vertexbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -166,9 +152,7 @@ int main(int argv, char** argc){
     // For speed computation
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
-    float distance;
     glm::vec3 camerapos = position;
-    float minnn=100000000, maxxx=-1000000000;
     glm::vec4 plan[6];
 
     do{
@@ -183,40 +167,41 @@ int main(int argv, char** argc){
         glm::mat4 ProjectionMatrix = getProjectionMatrix();
         glm::mat4 ViewMatrix = getViewMatrix();
         glm::mat4 ModelMatrix = glm::mat4(1.0);
+        glm::mat4 NormalMatrix = glm::inverseTranspose(ModelMatrix);
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
-        glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
-/*
-        plan[0].x = -proj_view[0][3] - proj_view[0][0];
-        plan[0].y = -proj_view[1][3] - proj_view[1][0];
-        plan[0].z = -proj_view[2][3] - proj_view[2][0];
-        plan[0].w = -proj_view[3][3] - proj_view[3][0];
+//        glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
+//
+//        plan[0].x = -proj_view[0][3] - proj_view[0][0];
+//        plan[0].y = -proj_view[1][3] - proj_view[1][0];
+//        plan[0].z = -proj_view[2][3] - proj_view[2][0];
+//        plan[0].w = -proj_view[3][3] - proj_view[3][0];
+//
+//        plan[1].x = -proj_view[0][3] + proj_view[0][0];
+//        plan[1].y = -proj_view[1][3] + proj_view[1][0];
+//        plan[1].z = -proj_view[2][3] + proj_view[2][0];
+//        plan[1].w = -proj_view[3][3] + proj_view[3][0];
+//
+//        plan[2].x = -proj_view[0][3] - proj_view[0][1];
+//        plan[2].y = -proj_view[1][3] - proj_view[1][1];
+//        plan[2].z = -proj_view[2][3] - proj_view[2][1];
+//        plan[2].w = -proj_view[3][3] - proj_view[3][1];
+//
+//        plan[3].x = -proj_view[0][3] + proj_view[0][1];
+//        plan[3].y = -proj_view[1][3] + proj_view[1][1];
+//        plan[3].z = -proj_view[2][3] + proj_view[2][1];
+//        plan[3].w = -proj_view[3][3] + proj_view[3][1];
+//
+//        plan[4].x = -proj_view[0][3] - proj_view[0][2];
+//        plan[4].y = -proj_view[1][3] - proj_view[1][2];
+//        plan[4].z = -proj_view[2][3] - proj_view[2][2];
+//        plan[4].w = -proj_view[3][3] - proj_view[3][2];
+//
+//        plan[5].x = -proj_view[0][3] + proj_view[0][2];
+//        plan[5].y = -proj_view[1][3] + proj_view[1][2];
+//        plan[5].z = -proj_view[2][3] + proj_view[2][2];
+//        plan[5].w = -proj_view[3][3] + proj_view[3][2];
 
-        plan[1].x = -proj_view[0][3] + proj_view[0][0];
-        plan[1].y = -proj_view[1][3] + proj_view[1][0];
-        plan[1].z = -proj_view[2][3] + proj_view[2][0];
-        plan[1].w = -proj_view[3][3] + proj_view[3][0];
-
-        plan[2].x = -proj_view[0][3] - proj_view[0][1];
-        plan[2].y = -proj_view[1][3] - proj_view[1][1];
-        plan[2].z = -proj_view[2][3] - proj_view[2][1];
-        plan[2].w = -proj_view[3][3] - proj_view[3][1];
-
-        plan[3].x = -proj_view[0][3] + proj_view[0][1];
-        plan[3].y = -proj_view[1][3] + proj_view[1][1];
-        plan[3].z = -proj_view[2][3] + proj_view[2][1];
-        plan[3].w = -proj_view[3][3] + proj_view[3][1];
-
-        plan[4].x = -proj_view[0][3] - proj_view[0][2];
-        plan[4].y = -proj_view[1][3] - proj_view[1][2];
-        plan[4].z = -proj_view[2][3] - proj_view[2][2];
-        plan[4].w = -proj_view[3][3] - proj_view[3][2];
-
-        plan[5].x = -proj_view[0][3] + proj_view[0][2];
-        plan[5].y = -proj_view[1][3] + proj_view[1][2];
-        plan[5].z = -proj_view[2][3] + proj_view[2][2];
-        plan[5].w = -proj_view[3][3] + proj_view[3][2];
-*/
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
         float px = position.x; float py = position.y; float pz = position.z;
@@ -224,9 +209,7 @@ int main(int argv, char** argc){
         float d = sqrt(pow( (float)(px - vecx) ,2) +
                        pow( (float)(py - vecy) ,2) +
                        pow( (float)(pz - vecz) ,2));
-                           //cout<<"d = "<<d;
-        /*if(d<minnn) minnn=d;
-        if(d>maxxx) maxxx=d;*/
+
         if (d<=20)              TessLevelInner = 32;
         else if (d<=30 && d>20) TessLevelInner = 16;
         else if(d<=40 && d>30)  TessLevelInner = 8;
@@ -234,13 +217,21 @@ int main(int argv, char** argc){
         else if(d<=60 && d>50)  TessLevelInner = 2;
         else if(d>60)           TessLevelInner = 1;
         TessLevelOuter = TessLevelInner;
-        //cout<<"     min = "<<minnn<<" e max = "<<maxxx<<endl;
+
         if (glfwGetKey( window, GLFW_KEY_L ) == GLFW_PRESS){
            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
         }
         if (glfwGetKey( window, GLFW_KEY_F ) == GLFW_PRESS){
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+        }
+        if (glfwGetKey( window, GLFW_KEY_U ) == GLFW_PRESS){
+           	glEnable(GL_CULL_FACE);
+
+        }
+        if (glfwGetKey( window, GLFW_KEY_I ) == GLFW_PRESS){
+            glDisable(GL_CULL_FACE);
 
         }
 
@@ -261,12 +252,11 @@ int main(int argv, char** argc){
         glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
         glUniformMatrix4fv(ProjectionMatrixID, 1, GL_FALSE, &ProjectionMatrix[0][0]);
-//        glUniform4fv(planeID, 6, glm::value_ptr(plan[0]));
-        glUniform1f( TessLevelInnerID, TessLevelInner );
-        glUniform1f( TessLevelOuterID, TessLevelOuter );
-//        glUniform1f(cameraPosIDX, px);
-//        glUniform1f(cameraPosIDY, py);
-//        glUniform1f(cameraPosIDZ, pz);
+        glUniformMatrix4fv(NormalMatrixID, 1, GL_FALSE, &NormalMatrix[0][0]);
+        //glUniform4fv(planeID, 6, glm::value_ptr(plan[0]));
+        glUniform1f(cameraPosIDX, px);
+        glUniform1f(cameraPosIDY, py);
+        glUniform1f(cameraPosIDZ, pz);
         glUniform1f(ampValue,amp);
 
         glPatchParameteri(GL_PATCH_VERTICES, 3);
