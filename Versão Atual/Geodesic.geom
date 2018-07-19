@@ -5,6 +5,9 @@ layout (triangle_strip, max_vertices=4) out;
 
 uniform mat4 N;
 uniform mat4 MVP;
+uniform float px;
+uniform float py;
+uniform float pz;
 
 in vertexData {
     //vec2 texCoord;
@@ -133,14 +136,27 @@ int getMaxOutput(int pattern){
     return n;
 }
 
- void main(){
-    vec4 centerEdge01 = (gl_in[0].gl_Position + gl_in[1].gl_Position) / 2;
-    vec4 centerEdge12 = (gl_in[1].gl_Position + gl_in[2].gl_Position) / 2;
-    vec4 centerEdge02 = (gl_in[0].gl_Position + gl_in[2].gl_Position) / 2;
-    if(centerEdge01 && centerEdge12 && centerEdge02);
-    if(centerEdge01 && centerEdge12);
-    if(centerEdge01 && centerEdge02);
-    if(centerEdge02);
-    if(centerEdge12);
-    if(centerEdge01);
+float dist(vec4 cEdge){
+    float dist = sqrt(pow(cEdge.x - px, 2)
+                    + pow(cEdge.y - py, 2)
+                    + pow(cEdge.z - pz, 2));
+    return dist;
+}
+
+void tess(vec4 cEdge01, vec4 cEdge02, vec4 cEdge12);
+    float dist01 = dist(cEdge01);
+    float dist02 = dist(cEdge02);
+    float dist12 = dist(cEdge12);
+    if(dist01 <= 4 && dist02 <= 4 && dist12 <= 4 ){
+        pattern(7);
+    }
+
+}
+
+void main(){
+    vec4 cEdge01 = (gl_in[0].gl_Position + gl_in[1].gl_Position) / 2;
+    vec4 cEdge02 = (gl_in[0].gl_Position + gl_in[2].gl_Position) / 2;
+    vec4 cEdge12 = (gl_in[1].gl_Position + gl_in[2].gl_Position) / 2;
+
+    tess(cEdge01, cEdge02, cEdge12);
 }

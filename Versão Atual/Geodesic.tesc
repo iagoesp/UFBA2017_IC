@@ -23,13 +23,13 @@ float LOD(vec3 posV, float posCX, float posCY, float posCZ){
   float dist = sqrt((posV.x - posCX)*(posV.x - posCX)
                   + (posV.y - posCY)*(posV.y - posCY)
                   + (posV.z - posCZ)*(posV.z - posCZ));
-  if(dist<=5) return 64.0;
-  else if(dist>5 && dist<=10) return 32.0;
-  else if(dist>10 && dist<=15) return 16.0;
-  else if(dist>15 && dist<=20) return 8.0;
-  else if(dist>20 && dist<=30) return 4.0;
-  else if(dist>30 && dist<=40) return 2.0;
-  else if(dist>40) return 1.0;
+  if(dist<=4) return 32.0;
+  else if(dist>4 && dist<=8) return 16.0;
+  else if(dist>8 && dist<=16) return 8.0;
+  else if(dist>16 && dist<=32) return 4.0;
+  else if(dist>32 && dist<=64) return 2.0;
+  else if(dist>64) return 1.0;
+
 }
 
 void main(){
@@ -42,10 +42,10 @@ void main(){
         vec3 vPos = vPosition[0];
         TessLevelnner = LOD(vPos, px, py, pz);
         TessLeveluter = LOD(vPos, px, py, pz);
-        gl_TessLevelInner[0] = 0;//TessLevelnner;
-        gl_TessLevelOuter[0] = 1;//TessLeveluter;
-        gl_TessLevelOuter[1] = 4;//TessLeveluter;
-        gl_TessLevelOuter[2] = 1;//TessLeveluter;
+        gl_TessLevelInner[0] = TessLevelnner;
+        gl_TessLevelOuter[0] = TessLeveluter;
+        gl_TessLevelOuter[1] = TessLeveluter;
+        gl_TessLevelOuter[2] = TessLeveluter;
     }
 
     /*else if (ID == 10) {
