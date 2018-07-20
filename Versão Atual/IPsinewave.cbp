@@ -47,6 +47,7 @@
 		<Unit filename="LoadShaders.hpp" />
 		<Unit filename="controls.cpp" />
 		<Unit filename="controls.hpp" />
+		<Unit filename="gshader.geom" />
 		<Unit filename="main.cpp" />
 		<Unit filename="vertexshader.vert" />
 		<Extensions>
