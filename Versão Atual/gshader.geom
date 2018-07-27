@@ -1,34 +1,71 @@
 
 
 void main(){
-    vec4 v0 = gl_in[0].gl_Position;
-    vec4 v1 = gl_in[1].gl_Position;
-    vec4 v2 = gl_in[2].gl_Position;
-    tess(v0, v1, v2);
-}
+    vec4 v0, v1, v2, c1, c2, cH;
+    if(gl_in[1].gl_Position - gl_in[0].gl_Position >= gl_in[2].gl_Position - gl_in[1].gl_Position &&
+       gl_in[1].gl_Position - gl_in[0].gl_Position >= gl_in[0].gl_Position - gl_in[2].gl_Position){
+        v0 = gl_in[0].gl_Position;
+        v1 = gl_in[1].gl_Position;
+        v2 = gl_in[2].gl_Position;
+    }
+    else if(gl_in[2].gl_Position - gl_in[1].gl_Position > gl_in[0].gl_Position - gl_in[2].gl_Position &&
+            gl_in[2].gl_Position - gl_in[1].gl_Position > gl_in[1].gl_Position - gl_in[0].gl_Position){
+        v0 = gl_in[1].gl_Position;
+        v1 = gl_in[2].gl_Position;
+        v2 = gl_in[0].gl_Position;
+    }
+    else if(gl_in[0].gl_Position - gl_in[2].gl_Position > gl_in[1].gl_Position - gl_in[0].gl_Position &&
+            gl_in[0].gl_Position - gl_in[2].gl_Position > gl_in[2].gl_Position - gl_in[1].gl_Position){
+        v0 = gl_in[2].gl_Position;
+        v1 = gl_in[0].gl_Position;
+        v2 = gl_in[1].gl_Position;
+    }
+    cH = (v0 + v1) / 2;
+    c2 = (v1 + v2) / 2;
+    c1 = (v2 + v0) / 2;
+    int lod;
+    float distH = sqrt((cH.x - px)*(cH.x - px)
+                  + (cH.y - py)*(cH.y - py)
+                  + (cH.z - pz)*(cH.z - pz));
 
-void tess(vec4 v0, vec4 v1, vec4 v2){
-    vec4 cC1;
-    vec4 cC2;
-    vec4 cH;
-    if(v1-v0 > v2-v1 && v1-v0 > v0-v2){
-        cH  = (v0 + v1) / 2;
-        cC2 = (v1 + v2) / 2;
-        cC1 = (v2 + v0) / 2;
-    }
-    else if(v2-v1 > v1-v0 && v2-v1 > v0-v2){
-        cH  = (v1 + v2) / 2;
-        cC2 = (v2 + v0) / 2;
-        cC1 = (v0 + v1) / 2;
-    }
-    else if(v0-v2 > v1-v0 && v0-v2 > v2-v1){
-        cH  = (v2 + v0) / 2;
-        cC2 = (v0 + v1) / 2;
-        cC1 = (v1 + v2) / 2;
-    }
-    float dist=min(dist(cC2), min(dist(cH), dist(cC1)));
-    bool subdiv = false;
-    nivelTess(cH, cC1, cC2, dist, subdiv, v0, v1, v2);
+    float distC1 = sqrt((c1.x - px)*(c1.x - px)
+                  + (c1.y - py)*(c1.y - py)
+                  + (c1.z - pz)*(c1.z - pz));
+
+    float distC2 = sqrt((c2.x - px)*(c2.x - px)
+                  + (c2.y - py)*(c2.y - py)
+                  + (c2.z - pz)*(c2.z - pz));
+
+    if(distH < 30 || distC1 < 30 || distC2 < 30){
+        if(distH < 30 && distC1 < 30 && distC2 < 30){
+            gl_Position = c1;
+            EmitVertex();
+
+            gl_Position = cH;
+            EmitVertex();
+
+            gl_Position = c2;
+            EmitVertex();
+        }
+        else if(dist(cH) < 15 && !(dist(cC1) < 15) && dist(cC2) < 15){
+
+        }
+        else if(dist(cH) < 15 && dist(cC1) < 15 && !(dist(cC2) < 15)){
+
+        }
+        else if(!(dist(cH) < 15) && dist(cC1) < 15 && dist(cC2) < 15){
+
+        }
+        else if(dist(cH) < 15 && !(dist(cC1) < 15 && dist(cC2) < 15)){
+
+        }
+        else if(!(dist(cH) < 15 ) && dist(cC1) < 15 && !(dist(cC2) < 15)){
+
+        }
+        else if(!(dist(cH) < 15 && dist(cC1) < 15 )&& dist(cC2) < 15){
+
+        }
+
 }
 
 float dist(vec4 cEdge){
