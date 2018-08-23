@@ -74,7 +74,7 @@ int main(int argv, char** argc){
 	//glDepthFunc(GL_LESS);
 
 	// Cull triangles which normal is not towards the camera
-	//glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE);
 //	if()
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -83,8 +83,9 @@ int main(int argv, char** argc){
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-    GLuint programID = LoadShaders( "Geodesic.vert",  "Geodesic.tesc", "Geodesic.tese", "Geodesic.frag");
-//	GLuint programID = LoadShaders( "Geodesic.Vertex", "Geodesic.Fragment");
+    //GLuint programID = LoadShaders( "Geodesic.vert",  "Geodesic.tesc", "Geodesic.tese", "Geodesic.frag");
+	GLuint programID = LoadShaders( "Geodesic.vert", "Geodesic.geom", "Geodesic.frag");
+	//GLuint programID = LoadShaders( "Geodesic.vert", "Geodesic.frag");
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID             = glGetUniformLocation(programID, "MVP");
@@ -153,7 +154,6 @@ int main(int argv, char** argc){
     TessLevelInner = 1.0f;
     TessLevelOuter = 1.0f;
     glm::vec3 camerapos = position;
-    glm::vec4 plan[6];
 
     do{
         // Clear the screen
@@ -169,38 +169,7 @@ int main(int argv, char** argc){
         glm::mat4 ModelMatrix = glm::mat4(1.0);
         glm::mat4 NormalMatrix = glm::inverseTranspose(ModelMatrix);
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-//        glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
-//
-//        plan[0].x = -proj_view[0][3] - proj_view[0][0];
-//        plan[0].y = -proj_view[1][3] - proj_view[1][0];
-//        plan[0].z = -proj_view[2][3] - proj_view[2][0];
-//        plan[0].w = -proj_view[3][3] - proj_view[3][0];
-//
-//        plan[1].x = -proj_view[0][3] + proj_view[0][0];
-//        plan[1].y = -proj_view[1][3] + proj_view[1][0];
-//        plan[1].z = -proj_view[2][3] + proj_view[2][0];
-//        plan[1].w = -proj_view[3][3] + proj_view[3][0];
-//
-//        plan[2].x = -proj_view[0][3] - proj_view[0][1];
-//        plan[2].y = -proj_view[1][3] - proj_view[1][1];
-//        plan[2].z = -proj_view[2][3] - proj_view[2][1];
-//        plan[2].w = -proj_view[3][3] - proj_view[3][1];
-//
-//        plan[3].x = -proj_view[0][3] + proj_view[0][1];
-//        plan[3].y = -proj_view[1][3] + proj_view[1][1];
-//        plan[3].z = -proj_view[2][3] + proj_view[2][1];
-//        plan[3].w = -proj_view[3][3] + proj_view[3][1];
-//
-//        plan[4].x = -proj_view[0][3] - proj_view[0][2];
-//        plan[4].y = -proj_view[1][3] - proj_view[1][2];
-//        plan[4].z = -proj_view[2][3] - proj_view[2][2];
-//        plan[4].w = -proj_view[3][3] - proj_view[3][2];
-//
-//        plan[5].x = -proj_view[0][3] + proj_view[0][2];
-//        plan[5].y = -proj_view[1][3] + proj_view[1][2];
-//        plan[5].z = -proj_view[2][3] + proj_view[2][2];
-//        plan[5].w = -proj_view[3][3] + proj_view[3][2];
+        //glm::mat4 proj_view = ProjectionMatrix * ViewMatrix;
 
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
@@ -259,7 +228,7 @@ int main(int argv, char** argc){
         glUniform1f(cameraPosIDZ, pz);
         glUniform1f(ampValue,amp);
 
-        glPatchParameteri(GL_PATCH_VERTICES, 3);
+        //glPatchParameteri(GL_PATCH_VERTICES, 3);
 
         // 1rst attribute buffer : vertices
         glEnableVertexAttribArray(0);
@@ -270,7 +239,7 @@ int main(int argv, char** argc){
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
         // Draw the triangles !
-        glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
+        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
         glDisableVertexAttribArray(0);
 

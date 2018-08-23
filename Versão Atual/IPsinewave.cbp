@@ -37,6 +37,7 @@
 			<Add library="glfw3" />
 			<Add library="opengl32" />
 			<Add library="gdi32" />
+			<Add library="glad" />
 		</Linker>
 		<Unit filename="Geodesic.frag" />
 		<Unit filename="Geodesic.geom" />

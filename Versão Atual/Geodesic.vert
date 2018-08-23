@@ -3,15 +3,13 @@
 in vec2 position;
 
 uniform float amp;
+uniform mat4 MVP;
 
-out float h;
 out vec3 vNormal;
 out vec4 vColor;
 
-out vec3 vPosition;
-
 void main(){
-    h 			= 0;//amp * sin((position.x)) * cos((position.y))+1;
+    float h 			= 0;//amp * sin((position.x)) * cos((position.y))+1;
     vNormal.x	= -sin(position.x)*sin(position.y);
     vNormal.z	= cos(position.x)*cos(position.y);
     vNormal.y   = h;
@@ -21,5 +19,6 @@ void main(){
     vColor.b 	= 1.0 - h / 4.0;
     vColor.a 	= 1.0f;
 
-    vPosition 	= vec3(position.x, h, position.y);
+    gl_Position = MVP * vec4(vec3(position.x, h, position.y),1.0);
+
 }
