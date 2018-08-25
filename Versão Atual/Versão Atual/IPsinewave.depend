@@ -1,0 +1,786 @@
+# depslib dependency file v1.0
+1510769475 source:c:\users\iago.labcg-pc\documents\ipsinewave\main.cpp
+	<vector>
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shader.hpp"
+	"controls.hpp"
+
+1510171039 c:\users\iago.labcg-pc\documents\ipsinewave\shader.hpp
+
+1510606673 c:\users\iago.labcg-pc\documents\ipsinewave\controls.hpp
+
+1510171827 source:c:\users\iago.labcg-pc\documents\ipsinewave\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510171039 source:c:\users\iago.labcg-pc\documents\ipsinewave\shader.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"shader.hpp"
+
+1510789339 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510606673 c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\controls.hpp
+
+1510796928 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"shader.hpp"
+	"controls.hpp"
+
+1510171039 c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\shader.hpp
+
+1510171039 source:c:\users\richardba\workspace\ufba2017_ic\ic01_sinewave\shader.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"shader.hpp"
+
+1510847727 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1510846693 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\controls.hpp
+
+1513187045 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1511882625 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\shader.hpp
+	<GL/gl.h>
+
+1510846693 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\shader.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"shader.hpp"
+
+1513183123 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1513183154 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\loadshaders.hpp
+
+1512503648 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vec_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\quat_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\mat_aos.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\vec_aos_v.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\quat_aos_v.h
+
+1283628378 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ic01_sinewave\vectormath\mat_aos_v.h
+
+1513211530 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\controls.hpp
+
+1513211530 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.hpp
+
+1513223317 source:c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos_v.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos_v.h
+
+1513211530 c:\users\richardba\desktop\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos_v.h
+
+1513260186 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\controls.hpp
+
+1513260186 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\loadshaders.hpp
+
+1513260911 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\vec_aos_v.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\quat_aos_v.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation\vectormath\mat_aos_v.h
+
+1513260186 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\controls.hpp
+
+1513260186 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\loadshaders.hpp
+
+1513262860 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vec_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\quat_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\mat_aos.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vec_aos_v.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\quat_aos_v.h
+
+1513260186 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\mat_aos_v.h
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\controls.hpp
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\loadshaders.hpp
+
+1515542470 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vec_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\quat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\mat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\vec_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\quat_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia\vectormath\mat_aos_v.h
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\controls.hpp
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\loadshaders.hpp
+
+1515542704 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\vec_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\quat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\mat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\vec_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\quat_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia\vectormath\mat_aos_v.h
+
+1515538394 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.hpp
+
+1515773303 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1515773309 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.hpp
+
+1515781869 source:c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos_v.h
+
+1515538394 c:\users\iago.labcg-pc\desktop\ic\ufba2017_ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
+
+1516380222 source:c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.hpp
+
+1516378461 source:c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.hpp
+
+1516382332 source:c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos.h
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos.h
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos.h
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos_v.h
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos_v.h
+
+1516378461 c:\users\richardba\desktop\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
+
+1516397421 source:c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.hpp
+
+1516397421 source:c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.hpp
+
+1516891080 source:c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos.h
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos.h
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos.h
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos_v.h
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos_v.h
+
+1516397421 c:\users\iago.labcg-pc\desktop\ic\ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
+
+1517161373 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\controls.hpp
+
+1517161373 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\loadshaders.hpp
+
+1517494141 source:c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\vec_aos_v.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\quat_aos_v.h
+
+1517161373 c:\users\richardba\desktop\ic\ufba2017_ic\ufba2017_ic\ic03_sinewave_tesselation - cópia - cópia - cópia\vectormath\mat_aos_v.h
+
+1529550249 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\controls.hpp
+
+1534799962 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1534799923 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.hpp
+
+1534808469 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"glm/ext.hpp"
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\vec_aos.h
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\quat_aos.h
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos.h
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\vec_aos_v.h
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\quat_aos_v.h
+
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos_v.h
+
