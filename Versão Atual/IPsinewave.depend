@@ -727,7 +727,7 @@
 
 1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\controls.hpp
 
-1534799962 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.cpp
+1529550249 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.cpp
 	<stdio.h>
 	<string>
 	<vector>
@@ -739,9 +739,9 @@
 	<GL/glew.h>
 	"LoadShaders.hpp"
 
-1534799923 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.hpp
+1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\loadshaders.hpp
 
-1534808469 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\main.cpp
+1529597926 source:c:\users\iagop\documents\ic\ufba2017_ic\versão atual\main.cpp
 	<vector>
 	<iostream>
 	<string>
@@ -783,4 +783,68 @@
 1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\quat_aos_v.h
 
 1529550249 c:\users\iagop\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos_v.h
+
+1531337862 source:c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\controls.hpp
+
+1531337908 source:c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\loadshaders.hpp
+
+1535498477 source:c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\vec_aos.h
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\quat_aos.h
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos.h
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\vec_aos_v.h
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\quat_aos_v.h
+
+1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos_v.h
 
