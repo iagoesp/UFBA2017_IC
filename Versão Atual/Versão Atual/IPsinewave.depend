@@ -784,3 +784,68 @@
 
 1529550249 c:\users\iagop\documents\ic\ufba2017_ic\vers�o atual\vectormath\mat_aos_v.h
 
+1535649938 source:d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\controls.hpp
+
+1535649938 source:d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\loadshaders.hpp
+
+1535649938 source:d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"glm/ext.hpp"
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\vec_aos.h
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\quat_aos.h
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\mat_aos.h
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\vec_aos_v.h
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\quat_aos_v.h
+
+1535649938 d:\igupes\mozi\ic\ufba2017_ic\versão atual\versão atual\vectormath\mat_aos_v.h
+
