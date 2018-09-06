@@ -7,6 +7,5 @@ in float p;
 out vec4 fragColor;
 
 void main(){
-
     fragColor = vcColor;
 }

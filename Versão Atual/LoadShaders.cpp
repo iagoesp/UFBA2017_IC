@@ -424,4 +424,3 @@ GLuint LoadShaders(const char * vertex_file_path, const char * geometry_file_pat
 	return ProgramID;
 }
 
-

@@ -10,14 +10,12 @@ out vec3 tcPosition[];
 out vec3 tcNormal[];
 out vec4 tcColor[];
 
-uniform float TessLevelInner;
-uniform float TessLevelOuter;
 uniform float px;
 uniform float py;
 uniform float pz;
 
-float TessLevelnner;
-float TessLeveluter;
+float TessLevelInner;
+float TessLevelOuter;
 
 #define ID gl_InvocationID
 
@@ -42,12 +40,12 @@ void main(){
 
     if (ID == 0) {
         vec3 vPos = vPosition[0];
-        TessLevelnner = LOD(vPos, px, py, pz);
-        TessLeveluter = LOD(vPos, px, py, pz);
-        gl_TessLevelInner[0] = TessLevelnner;
-        gl_TessLevelOuter[0] = TessLeveluter;
-        gl_TessLevelOuter[1] = TessLeveluter;
-        gl_TessLevelOuter[2] = TessLeveluter;
+        TessLevelInner = LOD(vPos, px, py, pz);
+        TessLevelOuter = LOD(vPos, px, py, pz);
+        gl_TessLevelInner[0] = TessLevelInner;
+        gl_TessLevelOuter[0] = TessLevelOuter;
+        gl_TessLevelOuter[1] = TessLevelOuter;
+        gl_TessLevelOuter[2] = TessLevelOuter;
     }
 
     /*else if (ID == 10) {
