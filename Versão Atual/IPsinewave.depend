@@ -848,3 +848,67 @@
 
 1528996683 c:\users\iago.labcg-pc\documents\ic\ufba2017_ic\versão atual\vectormath\mat_aos_v.h
 
+1537460221 source:c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\controls.cpp
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"controls.hpp"
+
+1537460221 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\controls.hpp
+
+1537463462 source:c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\loadshaders.cpp
+	<stdio.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<algorithm>
+	<stdlib.h>
+	<string.h>
+	<GL/glew.h>
+	"LoadShaders.hpp"
+
+1537460220 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\loadshaders.hpp
+
+1537464275 source:c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\main.cpp
+	<vector>
+	<iostream>
+	<string>
+	"vectormath/vectormath.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"LoadShaders.hpp"
+	"controls.hpp"
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\vectormath.h
+	"vectormath_aos_v.h"
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\vectormath_aos_v.h
+	<math.h>
+	<stdio.h>
+	"vectormath_aos.h"
+	"vec_aos_v.h"
+	"quat_aos_v.h"
+	"mat_aos_v.h"
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\vectormath_aos.h
+	<math.h>
+	<stdio.h>
+	"vec_aos.h"
+	"quat_aos.h"
+	"mat_aos.h"
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\vec_aos.h
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\quat_aos.h
+
+1537460221 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\mat_aos.h
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\vec_aos_v.h
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\quat_aos_v.h
+
+1537460222 c:\users\iagop\documents\pesquisa2017-2018\ufba2017_ic\versão atual\vectormath\mat_aos_v.h
+

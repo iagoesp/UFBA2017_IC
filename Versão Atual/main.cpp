@@ -82,6 +82,8 @@ int main(int argv, char** argc){
 
 	// Create and compile our GLSL program from the shaders
     GLuint programAdaptID = LoadShaders( "terrenofBm.vert",  "tessAdapt.tesc", "tessAdapt.tese", "tessAdapt.frag");
+    GLuint programGeomID  = LoadShaders( "Geodesic.vert", "Geodesic.geom","Geodesic.frag");
+    GLuint programUnifID  = LoadShaders( "terrenofBm.vert",  "tessUnif.tesc", "tessUnif.tese", "tessUnif.frag");
 	// Get a handle for all uniforms
 	GLuint MatrixID             = glGetUniformLocation(programAdaptID, "MVP");
 	GLuint ModelMatrixID        = glGetUniformLocation(programAdaptID, "M");
@@ -92,7 +94,6 @@ int main(int argv, char** argc){
     GLuint cameraPosIDZ         = glGetUniformLocation(programAdaptID, "pz");
 	GLuint ampValue             = glGetUniformLocation(programAdaptID, "amp");
 
-    GLuint programUnifID = LoadShaders( "terrenofBm.vert",  "tessUnif.tesc", "tessUnif.tese", "tessUnif.frag");
 	// Get a handle for all uniforms
     GLuint MatrixUID             = glGetUniformLocation(programUnifID, "MVP");
 	GLuint ModelMatrixUID        = glGetUniformLocation(programUnifID, "M");
@@ -105,21 +106,18 @@ int main(int argv, char** argc){
     GLuint TessLevelInnerUID     = glGetUniformLocation(programUnifID, "TessLevelInner" );// Inner tessellation paramter
     GLuint TessLevelOuterUID     = glGetUniformLocation(programUnifID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
 
-    GLuint programGeomID = LoadShaders( "terrenofBm_vG.vert",  "tessGeom.geom", "tessUnif.frag");
+    //GLuint programGeomID = LoadShaders("terrenofBm_vG.vert", "tessGeom.geom","tessUnif.frag");
 	// Get a handle for all uniforms
-    GLuint MatrixGID             = glGetUniformLocation(programUnifID, "MVP");
-	GLuint ModelMatrixGID        = glGetUniformLocation(programUnifID, "M");
-	GLuint ViewMatrixGID         = glGetUniformLocation(programUnifID, "V");
-	GLuint ProjectionMatrixGID   = glGetUniformLocation(programUnifID, "P");
-    GLuint cameraPosGIDX         = glGetUniformLocation(programUnifID, "px");
-    GLuint cameraPosGIDY         = glGetUniformLocation(programUnifID, "py");
-    GLuint cameraPosGIDZ         = glGetUniformLocation(programUnifID, "pz");
-	GLuint ampGValue             = glGetUniformLocation(programUnifID, "amp");
-    GLuint TessLevelInnerGID     = glGetUniformLocation(programUnifID, "TessLevelInner" );// Inner tessellation paramter
-    GLuint TessLevelOuterGID     = glGetUniformLocation(programUnifID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
-
-
-//    GLuint programGeomID = LoadShaders( "Geodesic.Vertex", "Geodesic.Fragment");
+    GLuint MatrixGID             = glGetUniformLocation(programGeomID, "MVP");
+	GLuint ModelMatrixGID        = glGetUniformLocation(programGeomID, "M");
+	GLuint ViewMatrixGID         = glGetUniformLocation(programGeomID, "V");
+	GLuint ProjectionMatrixGID   = glGetUniformLocation(programGeomID, "P");
+    GLuint cameraPosGIDX         = glGetUniformLocation(programGeomID, "px");
+    GLuint cameraPosGIDY         = glGetUniformLocation(programGeomID, "py");
+    GLuint cameraPosGIDZ         = glGetUniformLocation(programGeomID, "pz");
+	GLuint ampGValue             = glGetUniformLocation(programGeomID, "amp");
+    GLuint TessLevelInnerGID     = glGetUniformLocation(programGeomID, "TessLevelInner" );// Inner tessellation paramter
+    GLuint TessLevelOuterGID     = glGetUniformLocation(programGeomID, "TessLevelOuter" );  // TessLevelOuter tessellation paramter
 
     vector<unsigned short> indices;
     const GLuint index = 40.0;
@@ -221,8 +219,6 @@ int main(int argv, char** argc){
         glm::mat4 ModelMatrix = glm::mat4(1.0);
         glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
-
-
         // Send our transformation to the currently bound shader,
         // in the "MVP" uniform
         float px = position.x; float py = position.y; float pz = position.z;
@@ -274,7 +270,7 @@ int main(int argv, char** argc){
         }
 
         if(adapt || unif)
-        glPatchParameteri(GL_PATCH_VERTICES, 3);
+            glPatchParameteri(GL_PATCH_VERTICES, 3);
 
         // 1rst attribute buffer : vertices
         glEnableVertexAttribArray(0);
@@ -289,7 +285,7 @@ int main(int argv, char** argc){
             glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
         else
-            glDrawArrays(GL_TRIANGLES, 0, 3);
+            glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
         glDisableVertexAttribArray(0);
 
