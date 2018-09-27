@@ -1,7 +1,7 @@
 #version 430 core
 #extension GL_EXT_gpu_shader4 : enable
 #define F3 0.333333333
-#define G2 0.166666667
+#define G3 0.166666667
 
 layout(triangles, equal_spacing, cw) in;
 
@@ -85,7 +85,7 @@ vec4 dnoise(vec3 v){
 	float n0, n1, n2, n3;// Noise contributions from the three corners
 	// Skew the input space to determine which simplex cell we're in
 	float noise;
-	float s = (v.x+v.y + v.z)*F3; // Hairy factor for 2D
+	float s = (v.x + v.y + v.z)*F3; // Hairy factor for 2D
 	float xs = v.x + s;
 	float ys = v.y + s;
 	float zs = v.z + s;
@@ -140,51 +140,71 @@ vec4 dnoise(vec3 v){
 	float t20, t40;
 	if(t0 < 0.0f) n0 = t0 = t20 = t40 = gx0 = gy0 = gz0 = 0.0f;
 	else {
-		grad3_0( perm[ii + perm[jj + perm[kk]]]);//
+		grad3_0( perm[ii + perm[jj + perm[kk]]]);// <<<
 		t20 = t0 * t0;
 		t40 = t20 * t20;
-		n0 = t40 * ( gx0 * x0 + gy0 * y0 );
+		n0 = t40 * ( gx0 * x0 + gy0 * y0 + gz0*z0 );
 	}
 
-	float t1 = 0.5f - x1 * x1 - y1 * y1;
+	float t1 = 0.6f - x1 * x1 - y1 * y1 - z1 * z1;
 	float t21, t41;
-	if( t1 < 0.0f ) t21 = t41 = t1 = n1 = gx1 = gy1 = 0.0f; /* No influence */
+	if( t1 < 0.0f ) n1 = t1 = t21 = t41 = gx1 = gy1 = gz1 = 0.0f; /* No influence */
 	else {
-		grad2_1( perm[ii + i1 + perm[jj + j1]]);
+		grad3_1( perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]]);
 		t21 = t1 * t1;
 		t41 = t21 * t21;
-		n1 = t41 * ( gx1 * x1 + gy1 * y1 );
+		n1 = t41 * ( gx1 * x1 + gy1 * y1 + gz1 + z1);
 	}
 
-	float t2 = 0.5f - x2 * x2 - y2 * y2;
+	float t2 = 0.6f - x1 * x1 - y1 * y1 - z1 * z1;
 	float t22, t42;
-	if( t2 < 0.0f ) t42 = t22 = t2 = n2 = gx2 = gy2 = 0.0f; /* No influence */
+	if( t2 < 0.0f ) n2 = t2 = t42 = t22 = gx2 = gy2 = gz3 = 0.0f; /* No influence */
 	else {
-		grad2_2(perm[ii + 1 + perm[jj + 1]]);
+        grad3_2( perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]]);
 		t22 = t2 * t2;
 		t42 = t22 * t22;
-		n2 = t42 * ( gx2 * x2 + gy2 * y2 );
+		n2 = t42 * ( gx2 * x2 + gy2 * y2 + gz2 * z2);
 	}
 
-	float temp0 = t20 * t0 * ( gx0* x0 + gy0 * y0 );
+	float t3 = 0.6f - x1 * x1 - y1 * y1 - z1 * z1;
+	float t23, t43;
+	if( t3 < 0.0f ) n3 = t3 = t43 = t23 = gx3 = gy3 = gz3 = 0.0f; /* No influence */
+	else {
+        grad3_3( perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]]);
+		t23 = t3 * t3;
+		t43 = t23 * t23;
+		n3 = t43 * ( gx3 * x3 + gy3 * y3 + gz3 * z3);
+	}
+
+	noise = 28.0f * (n0 + n1 + n2 + n3);
+
+	float temp0 = t20 * t0 * ( gx0 * x0 + gy0 * y0 + gz0 * z0 );
 	float dnoise_dx = temp0 * x0;
 	float dnoise_dy = temp0 * y0;
-	float temp1 = t21 * t1 * ( gx1 * x1 + gy1 * y1 );
+	float dnoise_dz = temp0 * z0;
+	float temp1 = t21 * t1 * ( gx1 * x1 + gy1 * y1 + gz1 * z1 );
 	dnoise_dx += temp1 * x1;
 	dnoise_dy += temp1 * y1;
-	float temp2 = t22 * t2 * ( gx2* x2 + gy2 * y2 );
+	dnoise_dz += temp1 * z1;
+	float temp2 = t22 * t2 * ( gx2 * x2 + gy2 * y2 + gz2 * z2 );
 	dnoise_dx += temp2 * x2;
 	dnoise_dy += temp2 * y2;
+	dnoise_dz += temp2 * z2;
+	float temp3 = t23 * t3 * ( gx3 * x3 + gy3 * y3 + gz3 * z3 );
+	dnoise_dx += temp3 * x3;
+	dnoise_dy += temp3 * y3;
+	dnoise_dz += temp3 * z3;
 	dnoise_dx *= -8.0f;
 	dnoise_dy *= -8.0f;
-	dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2;
-	dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2;
-	dnoise_dx *= 40.0f; /* Scale derivative to match the noise scaling */
-	dnoise_dy *= 40.0f;
+	dnoise_dz *= -8.0f;
+	dnoise_dx += t40 * gx0 + t41 * gx1 + t42 * gx2 + t43 * gx3;
+	dnoise_dy += t40 * gy0 + t41 * gy1 + t42 * gy2 + t43 * gy3;
+	dnoise_dz += t40 * gz0 + t41 * gz1 + t42 * gz2 + t43 * gz3;
+	dnoise_dx *= 28.0f; /* Scale derivative to match the noise scaling */
+	dnoise_dy *= 28.0f;
+	dnoise_dz *= 28.0f;
 
-	// Add contributions from each corner to get the final noise value.
-	// The result is scaled to return values in the GLuinterval [-1,1].
-	return vec3( 40.0f * (n0 + n1 + n2), dnoise_dx, dnoise_dy ); // TODO: The scale factor is preliminary!
+	return vec4( noise, dnoise_dx, dnoise_dy, dnoise_dz );
 }
 
 float iqfBm(vec3 v, int octaves, float lacunarity, float gain )
@@ -209,10 +229,15 @@ float iqfBm(vec3 v, int octaves, float lacunarity, float gain )
 }
 
 void main(){
-    vec3 p0 = gl_TessCoord.x * tcPosition[0];
-    vec3 p1 = gl_TessCoord.y * tcPosition[1];
-    vec3 p2 = gl_TessCoord.z * tcPosition[2];
+    vec3 newTcPosition0 = (tcPosition[0]); newTcPosition0.y = iqfBm(newTcPosition0, 1,2,0.5);
+    vec3 newTcPosition1 = (tcPosition[1]); newTcPosition1.y = iqfBm(newTcPosition1, 1,2,0.5);
+    vec3 newTcPosition2 = (tcPosition[2]); newTcPosition2.y = iqfBm(newTcPosition2, 1,2,0.5);
+
+    vec3 p0 = gl_TessCoord.x * newTcPosition0;
+    vec3 p1 = gl_TessCoord.y * newTcPosition1;
+    vec3 p2 = gl_TessCoord.z * newTcPosition2;
     tePosition = (p0 + p1 + p2);
+    //tePosition.y = iqfBm(tePosition, 1,2,0.5);
 
     vec3 n0 = gl_TessCoord.x * tcNormal[0];
     vec3 n1 = gl_TessCoord.y * tcNormal[1];

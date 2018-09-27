@@ -63,7 +63,7 @@ int main(int argv, char** argc){
     glfwSetCursorPos(window, 1280/2, 1024/2);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+	glClearColor(1.f, 0.5f, 1.0f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
